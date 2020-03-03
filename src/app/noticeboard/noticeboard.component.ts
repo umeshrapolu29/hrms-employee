@@ -22,7 +22,7 @@ date:string='';
 
   ngOnInit() {
    
-    this.http1.get('http://localhost:3002/user/viewnotice')
+    this.http1.get(' https://hrmsbackend.herokuapp.com//user/viewnotice')
     .subscribe(
       (res)=>{
         console.log(res)

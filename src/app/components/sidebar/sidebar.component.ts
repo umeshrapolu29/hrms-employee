@@ -51,7 +51,7 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     
     console.log(this.leavedata.email)
-this.http1.post(`http://localhost:3002/user/getuserdata`,
+this.http1.post(` https://hrmsbackend.herokuapp.com/user/getuserdata`,
 {
   email:this.leavedata.email
 })

@@ -10,16 +10,25 @@ import 'rxjs/add/operator/map'
   providedIn: 'root'
 })
 export class AuthService {
-  private _loginUrl = "http://localhost:3000/users/login";
-  private _login1Url = "http://localhost:3002/user/login";
-  private _addemployeeUrl = "http://localhost:3000/Admin/uploads";
-  private _leaverequestUrl = "http://localhost:3002/user/leaverequest";
-  private _leavestatusUrl = "http://localhost:3002/user/leaveapproveddata";
-  private _viewholidayUrl = "http://localhost:3002/user/viewholiday";
-  private _addiprocurementUrl = "http://localhost:3002/user/addiprocurement";
-  private _getiprodataUrl = "http://localhost:3002/user/getapprovediprodata";
-  private _downloadpayslipsUrl = "http://localhost:3002/user/getpayslips";
+  // private _loginUrl = "http://localhost:3000/users/login";
+  // private _login1Url = "http://localhost:3002/user/login";
+  // private _addemployeeUrl = "http://localhost:3000/Admin/uploads";
+  // private _leaverequestUrl = "http://localhost:3002/user/leaverequest";
+  // private _leavestatusUrl = "http://localhost:3002/user/leaveapproveddata";
+  // private _viewholidayUrl = "http://localhost:3002/user/viewholiday";
+  // private _addiprocurementUrl = "http://localhost:3002/user/addiprocurement";
+  // private _getiprodataUrl = "http://localhost:3002/user/getapprovediprodata";
+  // private _downloadpayslipsUrl = "http://localhost:3002/user/getpayslips";
 
+  private _loginUrl = " https://hrmsbackend.herokuapp.com/users/login";
+  private _login1Url = " https://hrmsbackend.herokuapp.com/user/login";
+  private _addemployeeUrl = " https://hrmsbackend.herokuapp.com/Admin/uploads";
+  private _leaverequestUrl = " https://hrmsbackend.herokuapp.com/user/leaverequest";
+  private _leavestatusUrl = " https://hrmsbackend.herokuapp.com/user/leaveapproveddata";
+  private _viewholidayUrl = " https://hrmsbackend.herokuapp.com/user/viewholiday";
+  private _addiprocurementUrl = " https://hrmsbackend.herokuapp.com/user/addiprocurement";
+  private _getiprodataUrl = " https://hrmsbackend.herokuapp.com/user/getapprovediprodata";
+  private _downloadpayslipsUrl = " https://hrmsbackend.herokuapp.com/user/getpayslips";
 
   constructor(private http: HttpClient,private http1: Http,
     private _router: Router) { }

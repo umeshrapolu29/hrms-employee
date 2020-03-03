@@ -65,7 +65,7 @@ export class LeaverequestComponent implements OnInit {
         this.myArray=res;
         console.log(this.myArray._body)
         var jsonObj = JSON.parse( this.myArray._body);
-        console.log(jsonObj.data.status)
+        // console.log(jsonObj.data.status)
         this.leavestatus=jsonObj.data.status
        
      
