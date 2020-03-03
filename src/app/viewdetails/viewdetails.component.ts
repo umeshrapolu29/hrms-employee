@@ -56,7 +56,7 @@ export class ViewdetailsComponent implements OnInit {
      this.email=jsonObj.data.email
     
       this.name=jsonObj.data.name
-      this.id=jsonObj.data._id
+      this.id=jsonObj.data.fullid
       this.DOJ=jsonObj.data.DOJ
       this.DOB=jsonObj.data.DOB
       this.phone=jsonObj.data.phonenumber

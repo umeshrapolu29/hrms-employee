@@ -17,6 +17,9 @@
     height:26px;
      width:125px;
 }
+.fa-power-off{
+    color: red;
+}
 /* .fa-caret-left:active{
     transform: rotate(270deg); 
     transition: 3s transform;

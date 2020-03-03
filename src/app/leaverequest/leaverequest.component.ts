@@ -28,6 +28,7 @@ export class LeaverequestComponent implements OnInit {
     fromDate:'',
     toDate:'',
     reason:'',
+    emailto:'',
     email:localStorage.getItem('email'),
     name:localStorage.getItem('name')
   }
@@ -82,6 +83,7 @@ export class LeaverequestComponent implements OnInit {
     leaveempdata.append('reason', this. leavedata.reason);
     leaveempdata.append('requestto', this. leavedata.email);
     leaveempdata.append('name', this.leavedata.name);
+    leaveempdata.append('emailto', this.leavedata.emailto);
     console.log(this.leavedata.name)
     this._auth.leaverequest(leaveempdata)
     .subscribe(

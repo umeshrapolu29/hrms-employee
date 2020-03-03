@@ -100,6 +100,8 @@
 
                              </div>
                           </div>
+                          <div class="row">
+                            <div class="col-lg-6">
 											
 											 <mat-form-field class="example-full-width">
 													<textarea matInput placeholder="Reason"  name="reason" [(ngModel)]="leavedata.reason" #reason="ngModel" required></textarea>
@@ -108,9 +110,31 @@
                               <div *ngIf="reason.errors?.required"><span style="color: red"><strong> Reason is required!..</strong></span></div>
     
                             </div>
+                          </div>
+                          <div class="col-lg-6">
+
+									  
+                            <mat-form-field>
+                               <mat-label>Email</mat-label>
+                                 <mat-select [(value)]="leaveType" name="emailto" [(ngModel)]="leavedata.emailto" #Ltype="ngModel" required>
+                                 <mat-option>None</mat-option>
+                                 <mat-option value="HR">HR</mat-option>
+                                 <mat-option value="Manager">manager</mat-option>
+                                 <mat-option value="Immediate Manager">Immediate manager</mat-option>
+                             
+                                 </mat-select>
+                               </mat-form-field> 
+                               <div *ngIf="Ltype.touched && Ltype.invalid">
+                                  <div *ngIf="Ltype.errors?.required"><span style="color: red"><strong> is required!..</strong></span></div>
+        
+                                </div>
+                                <!-- <p>You selected: <b class=" field">{{leaveType}}</b></p>  -->
+                              </div>
                            
                            <a mat-button (click)="leaverequest()"  class="btn bg-primary rounded grtBtn mt-4"> Submit</a>
                   
+                          </div>
+                          
                           </div>
 								 </div>
 					</div>

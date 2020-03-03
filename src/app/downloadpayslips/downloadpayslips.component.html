@@ -102,7 +102,7 @@
                                                 <!-- <button mat-button (click)="openSnackBar(message.value, action.value)">Show snack-bar</button> -->
                                               
                                               <p>You selected: <b class=" field">{{selected2}}</b></p> 
-                                          <a mat-button   (click)="viewpayslips1()" [disabled]="!f.form.valid" class="btn bg-primary btn-block rounded grtBtn"> <i class="far fa-check-square mr-2"></i>Get</a>
+                                          <!-- <a mat-button   (click)="viewpayslips1()" [disabled]="!f.form.valid" class="btn bg-primary btn-block rounded grtBtn"> <i class="far fa-check-square mr-2"></i>Get</a> -->
                                 </div>
                               </div>
                  </div>
@@ -114,7 +114,7 @@
 										<hr class="bg-primary">                                 
                                    <div class="row">
                                      <div class="col lg-6">
-                                        <div class="btn-group border-primary ">
+                                        <!-- <div class="btn-group border-primary ">
                                             <span class="font-weight-bolder">Show</span>  &nbsp; <button class="btn btnShow btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                    
                                                  </button>&nbsp;<span class="font-weight-bolder">entries</span>
@@ -125,17 +125,17 @@
                                                      <a class="dropdown-item" href="#">100</a>
                                                      
                                                  </div>
-                                               </div>
+                                               </div> -->
                                     </div>
                   
-                                    <div class="col lg-6 ">
+                                    <!-- <div class="col lg-6 ">
                                         <div class="input-group mb-3 justify-content-end">
                                             <input type="text" class=" border text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
                                             <div class="input-group-append">
                                               <button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
                                             </div>
                                           </div>
-                                    </div>
+                                    </div> -->
                                    
                                     </div>
                                       <table class="table table-striped table-bordered table-hover  tabel-responsive" id="myTable">
@@ -257,227 +257,5 @@
              </div>
             </div>
 </form>
-        <!-- <div class="accordion" id="accordionExample">
-         <div class="card">
-              <div class="card-header" id="headingOne">
-                <h4 class="mb-0">
-                  <span class="font-weight-bold">Payslips</span>
-                  <button class="btn btn-link btn-sm bg-primary text-white float-right font-weight-bold" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                New Notice
-                  </button>
-                </h4>
-              </div>
-             <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordionExample">
-              <hr> 
-              <div class="card-body">
-                    <table class="table table-striped table-bordered table-hover tabel-responsive" id="myTable">
-                            <thead>
-                              <tr class="table-fields font-weight-bolder">
-                                <th><b>S.no</b></th>
-                                <th><b>Name</b></th>
-                                <th><b>Description</b></th>
-                                 <th><b>Date</b></th> 
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                <td>101</td>
-                                <td>sgdfgsffvbxhdsbfvndvfgvd</td>
-                                <td>forbdfhsdgfhgd ndbfhdbsfhgbhbd ohhbdhfhd</td>
-                                <td>23-09-2019</td>
-                                
-                              </tr>  
-                             </tbody>
-                           </table>
-                         </div>
-              </div>
-            </div>
-              <div class="card">
-              <div class="card-header" id="headingTwo">
-               </div>
-               <div class="card-body">
-                  <h4 class="font-weight-bold mb-3">List of all Notifications</h4>
-                 <div class="row">
-                   <div class="col lg-6">
-                      <div class="btn-group border-primary ">
-                          <span class="font-weight-bolder">Show</span>  &nbsp; <button class="btn btnShow btn-sm dropdown-toggle " type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                 
-                               </button>&nbsp;<span class="font-weight-bolder">entries</span>
-                               <div class="dropdown-menu ">
-                                   <a class="dropdown-item" href="#">10</a>
-                                   <a class="dropdown-item" href="#">25</a>
-                                   <a class="dropdown-item" href="#">50</a>
-                                   <a class="dropdown-item" href="#">100</a>
-                                   
-                               </div>
-                             </div>
-                  </div>
-
-                  <div class="col lg-6 ">
-                      <div class="input-group mb-3 justify-content-end">
-                          <input type="text" class=" border text-center" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
-                          <div class="input-group-append">
-                            <button class="btn bg-primary btn-sm p-2" type="button" id="button-addon2">Go</button>
-                          </div>
-                        </div>
-                  </div>
-                 
-                  </div>
-                    <table class="table table-striped table-bordered table-hover tabel-responsive" id="myTable">
-                  <thead>
-                    <tr class="table-fields font-weight-bolder">
-                      <th><b>S.no</b></th>
-                      <th><b>Name</b></th>
-                      <th><b>Description</b></th>
-                       <th><b>Date</b></th> 
-                  </tr>
-                  </thead>
-                  <tbody>
-                
-                    <tr>
-                      <td>101</td>
-                      <td>sgdfgsffvbxhdsbfvndvfgvd</td>
-                      <td>forbdfhsdgfhgd ndbfhdbsfhgbhbd ohhbdhfhd</td>
-                      <td>23-09-2019</td>
-                      
-                    </tr>  
-                    <tr>
-                      <td>201</td>
-                      <td>bvdshfjdsbdbvhdvsdbvn</td>
-                      <td>shfguwhusjdfhjsdfijsdkfdvnjdbvvsvcx</td>
-                      <td>9-7-2019</td>
-                                  
-                    </tr>  
-                    <tr>
-                        <td>301</td>
-                        <td>gdfsgfgvdbvegkf</td>
-                        <td>hsdfyuieysfhdvfdsgfuhhdvhxgdfshgfhdhdshkg</td>
-                        <td>09-07-2018</td>
-                                    
-                      </tr>
-                      </tbody>
-                 </table>
-    
-                 <nav aria-label="Page navigation example">
-                    <ul class="pagination justify-content-end font-weight-bold ">
-                      <li class="page-item disabled border">
-                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                      </li>
-                      <li class="page-item border"><a class="page-link" href="#">1</a></li>
-                      <li class="page-item border"><a class="page-link" href="#">2</a></li>
-                      <li class="page-item border"><a class="page-link" href="#">3</a></li>
-                      <li class="page-item border">
-                        <a class="page-link" href="#">Next</a>
-                      </li>
-                    </ul>
-                  </nav>
-    
-                </div>
-              
-            </div>
-          
-          </div> -->
-    
-  
-
-<!-- <div class="page-content-wrapper" style="margin-left: -237px;">
- 	
-  <div class="page-content bgLogo" style="margin-right: -232px;">
-    <h3 class="" >
-         Download Payslips
-     </h3>
-     <div class="float-right">
-            <img src="/assets/img/black logo.png" height="50px" width="200px" class="">
-        </div>
-      <div class="page-bar">
-         <ul class="page-breadcrumb">
-             <li>
-                 <i class="fa fa-home"></i>
-                 <a routerLink='/homepage'>Home</a>
-                 <i class="fa fa-angle-right"></i>
-             </li>
-             <li>
-                  <a>Payslips</a>
-                </li>
-             </ul>
-         </div>
-      <div class="row ">
-         <div class="col-md-6">
-
-         </div>
-         <div class="col-md-6 form-group text-right">
- 
-             <span id="load_notification"></span>
-             <input type="checkbox" onchange="ToggleEmailNotification('notice_notification');return false;"
-                    class="make-switch" name="notice_notification" checked
-                     data-on-color="success" data-on-text="Yes" data-off-text="No" data-off-color="danger">
-             <strong>Email Notification</strong><br>
-     </div>
-     </div>
-      <div class="row">
-         <div class="col-md-12">
-     <div id="load">
-             </div>
-             <div class="portlet box blue">
-                 <div class="portlet-title">
-                     <div class="">
-                         <i class="fa fa-download"></i>Download Payslips
-                     </div>
-                     <div class="tools">
-                     </div>
-                 </div>
-                  <div class="portlet-body">
-                     <table class="table table-striped table-bordered table-hover" id="notices">
-                          <tr class="text-center">
-                              <th>Month</th>
-                             <th>Year</th>
-                             <th> View</th>
-                             <th> Download</th>
-                            </tr>
-                          <tbody class="text-center">
-                              <td>
-                                      <select class="form-control form-control-lg" name="month" [(ngModel)]="empData.month" >
-                                        <option value="" selected>--select Month--</option>
-                                       
-                                        <option value="01">01</option>
-                                        <option value="02">02</option>
-                                        <option value="03">03</option>
-                                        <option value="04">04</option>
-                                        <option value="05">05</option>
-                                        <option value="06">06</option>
-                                        <option value="07">07</option>
-                                        <option value="08">08</option>
-                                        <option value="09">09</option>
-                                        <option value="10">10</option>
-                                        <option value="11">11</option>
-                                        <option value="12">12</option>
-                                    </select>
-                                    </td>
-                                    <td>
-                                        <select class="form-control form-control-lg" name="year" [(ngModel)]="empData.year">
-                                            <option value="" selected >--select Year--</option>
-                                            <option value="2019">2019</option>
-                                            <option value="2018">2018</option>
-                                            <option value="2017">2017</option>
-                                            <option value="2016">2016</option>
-                                            <option value="2015">2015</option>
-                                            <option value="2014">2014</option>
-                                            <option value="2013">2013</option>
-                                 </select>
-                                    </td>
-                                    <td><input type="button" name="submit1" class="btn rounded py-1  btn-success" (click)="viewpayslips1()" value="view"></td>
-                                     <td>
-                                          <input type="submit" value="download" (click)="download()" class=" rounded btn btn-success py-1">
-                                      
-                                      </td>
-                                     </tbody>
-                     </table>
-                     </div>
-             </div>
-              <img src="{{file1}}" class="card-img-top" alt="...">
-         </div>
-     </div>
-      </div>
-  </div> -->
-
+       
 
