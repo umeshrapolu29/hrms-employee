@@ -13,7 +13,7 @@ export class AuthService {
   // private _loginUrl = "http://localhost:3000/users/login";
   // private _login1Url = "http://localhost:3002/user/login";
   // private _addemployeeUrl = "http://localhost:3000/Admin/uploads";
-  // private _leaverequestUrl = "http://localhost:3002/user/leaverequest";
+  // private _leaverequestUrl = "http://localhost:3000/user/leaverequest";
   // private _leavestatusUrl = "http://localhost:3002/user/leaveapproveddata";
   // private _viewholidayUrl = "http://localhost:3002/user/viewholiday";
   // private _addiprocurementUrl = "http://localhost:3002/user/addiprocurement";

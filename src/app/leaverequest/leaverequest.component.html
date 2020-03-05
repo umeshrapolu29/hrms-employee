@@ -47,7 +47,7 @@
                                         <mat-form-field>
                                            <mat-label>Leave Type</mat-label>
                                              <mat-select [(value)]="leaveType" name="type" [(ngModel)]="leavedata.type" #Ltype="ngModel" required>
-                                             <mat-option>None</mat-option>
+                                            
                                              <mat-option value="Sick">Sick</mat-option>
                                              <mat-option value="Casual">Casual</mat-option>
                                              <mat-option value="Optional">Optional</mat-option>
@@ -116,8 +116,8 @@
 									  
                             <mat-form-field>
                                <mat-label>Email</mat-label>
-                                 <mat-select [(value)]="leaveType" name="emailto" [(ngModel)]="leavedata.emailto" #Ltype="ngModel" required>
-                                 <mat-option>None</mat-option>
+                                 <mat-select [(value)]="leaveType1" name="emailto" [(ngModel)]="leavedata.emailto" #Ltype="ngModel" required>
+                          
                                  <mat-option value="HR">HR</mat-option>
                                  <mat-option value="Manager">manager</mat-option>
                                  <mat-option value="Immediate Manager">Immediate manager</mat-option>

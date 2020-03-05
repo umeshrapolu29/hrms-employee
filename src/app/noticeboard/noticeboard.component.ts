@@ -22,9 +22,10 @@ date:string='';
 
   ngOnInit() {
    
-    this.http1.get(' https://hrmsbackend.herokuapp.com//user/viewnotice')
+    this.http1.get(' https://hrmsbackend.herokuapp.com/user/viewnotice')
     .subscribe(
       (res)=>{
+        console.log("inside notice board")
         console.log(res)
         this.array=res;
        

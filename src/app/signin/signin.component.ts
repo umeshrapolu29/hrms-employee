@@ -61,8 +61,8 @@ export class SigninComponent implements OnInit {
         localStorage.setItem('email',jsonObj.data.email)
         if(jsonObj.msg=="login successfull")
         {
-          console.log("login successfull");
-          Swal.fire('','login Successful','success')
+        
+      
           this._router.navigate(['/homepage'])
         }
         else{
