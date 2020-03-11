@@ -62,7 +62,7 @@ export class SigninComponent implements OnInit {
         if(jsonObj.msg=="login successfull")
         {
           console.log("login successfull");
-          Swal.fire('','login Successful','success')
+          // Swal.fire('','login Successful','success')
           this._router.navigate(['/homepage'])
         }
         else{
