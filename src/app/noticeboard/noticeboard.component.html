@@ -153,32 +153,33 @@
                       <td>{{hero.title}}</td>
                       <td>{{hero.description}}</td>
                       <td>{{hero.date}}</td>
-                      <td class=""> 
-                        <button class="actionIcons" data-toggle="modal" attr.data-target="#modal{{hero.rig}}" ><i class="far fa-eye"></i></button>
-                         <div class="modal fade" id="modal{{hero.rig}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-                                                    <div class="modal-dialog modal-dialog-scrollable" role="document">
-                                                      <div class="modal-content">
-                                                        <div class="modal-header">
-                                                          <h5 class="modal-title" id="exampleModalScrollableTitle">Notice</h5>
-                                                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                          </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                          View Notice here...
-                                                          
-                                                          
-                                                          <img src="{{hero.file}}" class="card-img-top" alt="...">
-                                                        </div>
-                                                        <div class="modal-footer">
-                                                          <button type="button" class="btn btn-sm rounded btn-info" data-dismiss="modal">Close</button>
-                                                       
-                                                        </div>
-                                                      </div>
-                                                    </div>
-                                                  </div>
+                      <td > 
+                        <button class="actionIcons"  data-toggle="modal" attr.data-target="#modal1{{hero.rig}}" ><i class="far fa-eye"></i></button>
+                        <div class="modal fade" id="modal1{{hero.rig}}" tabindex="1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-scrollable" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalScrollableTitle">Notice</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button> 
+                              </div>
+                              <div class="modal-body" >
+                                View notice here...
+                      
+                                
+                                
+                                <img src="{{hero.file}}" class="card-img-top" alt="...">
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-sm rounded btn-info" data-dismiss="modal">Close</button>
+                             
+                              </div>
+                            </div>
+                          </div>
+                        </div>
 
-                        </td>
+                      </td>
                       
                     </tr> 
                     
