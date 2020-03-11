@@ -58,8 +58,8 @@
                                 <td>{{hero.description}}</td>
                                 <td>{{hero.date}}</td>
                                 <td > 
-                                  <button class="actionIcons" data-toggle="modal" data-target="#exampleModalScrollable" ><i class="far fa-eye"></i></button>
-                                  <div class="modal fade" id="exampleModalScrollable" tabindex="1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                                  <button class="actionIcons"  data-toggle="modal" attr.data-target="#modal{{hero.rig}}" ><i class="far fa-eye"></i></button>
+                                  <div class="modal fade" id="modal{{hero.rig}}" tabindex="1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                       <div class="modal-content">
                                         <div class="modal-header">
@@ -69,7 +69,8 @@
                                           </button> 
                                         </div>
                                         <div class="modal-body" >
-                                          {{hero.title}}
+                                          View notice here...
+                                
                                           
                                           
                                           <img src="{{hero.file}}" class="card-img-top" alt="...">
@@ -153,8 +154,8 @@
                       <td>{{hero.description}}</td>
                       <td>{{hero.date}}</td>
                       <td class=""> 
-                        <button class="actionIcons" data-toggle="modal" data-target="#exampleModalScrollable1" ><i class="far fa-eye"></i></button>
-                         <div class="modal fade" id="exampleModalScrollable1" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+                        <button class="actionIcons" data-toggle="modal" attr.data-target="#modal{{hero.rig}}" ><i class="far fa-eye"></i></button>
+                         <div class="modal fade" id="modal{{hero.rig}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
                                                     <div class="modal-dialog modal-dialog-scrollable" role="document">
                                                       <div class="modal-content">
                                                         <div class="modal-header">
