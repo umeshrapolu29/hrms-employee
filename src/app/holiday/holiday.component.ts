@@ -158,7 +158,7 @@ $(function() {
     )
   }
   allholidaytype(){
-    this.http1.get('http://localhost:3000/user/allholidays')
+    this.http1.get('https://hrmsbackend.herokuapp.com/user/allholidays')
     .subscribe(
       (res)=>{
         console.log(res)
