@@ -35,6 +35,7 @@ export class LeaverequestComponent implements OnInit {
   leavestatus:string='';
   date:string='';
   myArray:any;
+  leaveType1:any;
   
 
   // constructor(private _auth: AuthService,
