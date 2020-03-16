@@ -28,10 +28,10 @@
       <a class="nav-link border text-danger" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" (click)="viewbankdetails()"> 
       <i class="fas fa-university  mr-2"></i>
       Bank Details</a>
-        <a class="nav-link border text-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
-            <i class="fas fa-briefcase  mr-2"></i>Company Details</a>
-            <a class="nav-link border text-success" id="v-pills-settings-tab1" data-toggle="pill" href="#v-pills-personal" role="tab" aria-controls="v-pills-settings-tab1" aria-selected="false">
-              <i class="fas fa-briefcase  mr-2"></i>personal Details</a>
+        <!-- <a class="nav-link border text-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
+            <i class="fas fa-briefcase  mr-2"></i>Company Details</a> -->
+            <a class="nav-link border text-success" id="v-pills-settings-tab1" data-toggle="pill" href="#v-pills-personal" role="tab" aria-controls="v-pills-settings-tab1" aria-selected="false"  (click)="viewpersonaldetails()">
+              <i class="fas fa-briefcase  mr-2" ></i>personal Details</a>
       </div>
     </div>
     <div class="col-9">
@@ -87,9 +87,9 @@
             </tr>
             </tbody>
             </table>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EmployeeDetailsModal">
+            <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EmployeeDetailsModal">
               Edit
-            </button>
+            </button> -->
             
             <!-- Modal -->
             <!-- <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
@@ -616,36 +616,36 @@
             <tr>
             <td>Primary Email	</td>
             <td>:</td>
-            <td>kiran</td>
+            <td>{{primaryemail}}</td>
             </tr>
             <tr>
             <td>Secondary Email	</td>
             <td>:</td>
-            <td>2121321313</td>
+            <td>{{secondaryemail}}</td>
             </tr>
             <tr>
               <td>
                 Primary Mobile Number
               </td>
               <td>:</td>
-              <td></td>
+              <td>{{primaryphone}}</td>
             </tr>
             <tr>
               <td>
                 Secondary Mobile Number
               </td>
               <td>:</td>
-              <td></td>
+              <td>{{secondaryphone}}</td>
             </tr>
             <tr>
             <td>Guardian</td>
             <td>:</td>
-            <td>ICICI</td>
+            <td>{{guardian}}</td>
             </tr>
             <tr>
             <td>Guardian Number</td>
             <td>:</td>
-            <td>215415421</td>
+            <td>{{guardianphone}}</td>
             </tr>
            
           
@@ -654,23 +654,23 @@
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#personalModalDetails">
               Edit
             </button>
-            <!-- <div class="modal fade" id="personalModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
-              <div class="modal-dialog modal-dialog-scrollable" role="document">
+              <div class="modal fade" id="personalModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
-                  <div class="modal-header">
+                   <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Bank Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
-                  <div class="modal-body">
+                   <div class="modal-body">
                     <form class="form" #regForm="ngForm" novalidate>
-                      <div class="row">
+                       <div class="row">
                           <div class="col-lg-6">
                         <mat-form-field>
-                            <input type="email" name="PriEmail" 
+                            <input type="email" name="primaryemail" 
                             Autocomplete="off" 
-                            [(ngModel)]=" empData.email" matInput 
+                            [(ngModel)]=" personaldetailsdata.primaryemail" matInput 
                             #PriEmail="ngModel"
                             pattern="([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})"
                             placeholder="Primary Email" required>
@@ -689,9 +689,9 @@
                         </div>
                         <div class="col-lg-6">
                           <mat-form-field>
-                              <input type="email" name="secEmail" 
+                              <input type="email" name="secondaryemail" 
                               Autocomplete="off" 
-                              [(ngModel)]=" empData.email" matInput 
+                              [(ngModel)]=" personaldetailsdata.secondaryemail" matInput 
                               #secEmail="ngModel"
                               pattern="([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})"
                               placeholder="Secondary Email">
@@ -710,9 +710,9 @@
                       <div class="row">
                         <div class="col-lg-6">
                       <mat-form-field>
-                          <input matInput  name="pMobNo" 
+                          <input matInput  name="primaryphone" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.phonenumber"
+                          [(ngModel)]=" personaldetailsdata.primaryphone"
                           #pMobNo ="ngModel"
                            pattern="[0-9]{10,10}"
                            placeholder="Primary Phone Number" required>
@@ -730,9 +730,9 @@
                       </div>
                       <div class="col-lg-6">
                         <mat-form-field>
-                            <input matInput  name="sMobNo" 
+                            <input matInput  name="secondaryphone" 
                             Autocomplete="off" 
-                            [(ngModel)]=" empData.phonenumber"
+                            [(ngModel)]=" personaldetailsdata.secondaryphone"
                             #sMobNo ="ngModel"
                              pattern="[0-9]{10,10}"
                              placeholder="Secondary Phone Number" required>
@@ -747,15 +747,16 @@
                              </mat-error>
                     </mat-form-field>
                     </div>
+                    </div>
                     <div class="row">
                     <div class="col-lg-6">
                       <mat-form-field>
-                        <input matInput name="guardianName" 
+                        <input matInput name="guardian" 
                         Autocomplete="off" 
-                        [(ngModel)]=" empData.first_name" #guardianName="ngModel"
+                        [(ngModel)]=" personaldetailsdata.guardian" #guardianName="ngModel"
                          pattern="[0-9]+"  
                          placeholder="guardian Name" required>
-                         <mat-error *ngIf="guardianName.invalid &&(guardianName.dirty || guardianName.touched)">
+                         <!-- <mat-error *ngIf="guardianName.invalid &&(guardianName.dirty || guardianName.touched)">
                            <div *ngIf="guardianName.hasError('required')">
                             Please Enter Guardian Name
                            </div>
@@ -763,19 +764,19 @@
                           Please Enter Numbers Only.
         
                         </div>  
-                          </mat-error>
+                          </mat-error> -->
                     
                         </mat-form-field>
                     </div>
                     <div class="col-lg-6">
                         <mat-form-field>
-                            <input matInput  name="guardianMobNo" 
+                            <input matInput  name="guardiannumber" 
                             Autocomplete="off" 
-                            [(ngModel)]=" empData.phonenumber"
+                            [(ngModel)]=" personaldetailsdata.guardiannumber"
                             #guardianMobNo ="ngModel"
                              pattern="[0-9]{10,10}"
                              placeholder="Guardian Phone Number" required>
-                             <mat-error *ngIf="guardianMobNo.invalid && (guardianMobNo.dirty || guardianMobNo.touched)">
+                             <!-- <mat-error *ngIf="guardianMobNo.invalid && (guardianMobNo.dirty || guardianMobNo.touched)">
                                <div *ngIf="guardianMobNo.hasError('required')">
                                  Please Enter Guardian Mobile Number
                                </div>
@@ -783,20 +784,20 @@
                                <div *ngIf="guardianMobNo.hasError('pattern')" >
                                  Please enter valid mobile number
                                </div>
-                             </mat-error>
+                             </mat-error> -->
                         
                         </mat-form-field>
                     </div>
-                  </div>
+                  </div> -->
                     </form>
-                  </div>
+                  </div>  
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary"(click)="personaldetails()"  data-dismiss="modal"s >Save changes</button>
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
         </div>
       </div>
     </div>
