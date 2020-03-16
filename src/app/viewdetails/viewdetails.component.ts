@@ -23,6 +23,19 @@ export class ViewdetailsComponent implements OnInit {
   photo:string;
   gender:string;
   id:number;
+  bankdetailsarray:any;
+  bankdetails:any;
+  school:string='';
+  collegeOne:string='';
+  collegeTwo:String='';
+  pg:String='';
+  accountholder:String=''
+  accountnumber:String=''
+  bankname:String=''
+  pannumber:String=''
+  branch:String=''
+  ifsccode:String=''
+  array2:any;
   leavedata={
    
     email:localStorage.getItem('email')
@@ -42,10 +55,15 @@ export class ViewdetailsComponent implements OnInit {
   }
 
   constructor(private _auth: AuthService,
-    private _router: Router, private _httpclient:HttpClient,private http1:Http) { }
+    private _router: Router, private _httpclient:HttpClient,private http:Http) { }
 
   ngOnInit() {
-    this.http1.post(`https://hrmsbackend.herokuapp.com/user/getuserdata`,
+
+
+
+
+
+    this.http.post(`https://hrmsbackend.herokuapp.com/user/getuserdata`,
 {
   email:this.leavedata.email
 })
@@ -82,10 +100,27 @@ export class ViewdetailsComponent implements OnInit {
     educationaldetails.append('intermediate',this.educationaldata.intermediate)
     educationaldetails.append('degree',this.educationaldata.degree)
     educationaldetails.append('pg',this.educationaldata.pg)
-    educationaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
+    educationaldetails.append('empname',localStorage.getItem('email'))
     this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
       console.log(res);
     })
+
+  }
+  vieweducationdetails(){
+    console.log("inside employee details");
+    
+    this.http.post('https://hrmsbackend.herokuapp.com/user/geteducationaldetails',{
+      
+        empname:localStorage.getItem('email')
+      }).subscribe((res)=>{
+          console.log(res);
+          this.array2=res;
+          var educationDetails = JSON.parse(this.array2._body);              
+            this.school=educationDetails.data.tenth         
+            this.collegeOne=educationDetails.data.intermediate
+            this.collegeTwo=educationDetails.data.degree
+            console.table(educationDetails)
+      })
 
   }
 

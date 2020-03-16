@@ -23,7 +23,7 @@
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
         <a class="nav-link active border" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> <i class="fas fa-user-tie fa-1x mr-2"></i>Employee Details </a>
  
-  <a class="nav-link border  text-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">  <i class="fas fa-user-graduate mr-2"></i>Education Details</a>
+  <a class="nav-link border  text-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="vieweducationdetails()">  <i class="fas fa-user-graduate mr-2"></i>Education Details</a>
      
       <a class="nav-link border text-danger" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"> 
       <i class="fas fa-university  mr-2"></i>
@@ -87,7 +87,7 @@
             </button>
             
             <!-- Modal -->
-            <!-- <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -267,7 +267,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <table class="table border border-left">
@@ -282,24 +282,24 @@
             <tr>
             <td>SSC</td>
             <td>:</td>
-            <td>Govt. High School</td>
+            <td>{{school}}</td>
             </tr>
             <tr>
             <td>+2</td>
             <td>:</td>
-            <td>Ekashila Jr. College</td>
+            <td>{{collegeOne}}</td>
             </tr>
             <tr>
             <td>Degree</td>
             <td>:</td>
-            <td>Gurunanak Institute of Technical Campus</td>
+            <td>{{collegeTwo}}</td>
             </tr>
             </tbody>
             </table> 
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#eduacationDetailsModal">
               Edit
             </button>
-            <!-- <div class="modal fade" id="eduacationDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal fade" id="eduacationDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -329,9 +329,9 @@
                       </div>
                       <div class="col-lg-6">
                         <mat-form-field>
-                          <input matInput name="inter" 
+                          <input matInput name="intermediate" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name" #intermediate="ngModel"
+                          [(ngModel)]=" educationaldata.intermediate"#intermediate="ngModel"
                            pattern="[a-zA-Z\s]+"  
                            placeholder="intermediate" required>
                            <mat-error *ngIf="intermediate.invalid &&(intermediate.dirty || intermediate.touched)">
@@ -348,7 +348,7 @@
                     <mat-form-field>
                       <input matInput name="degree" 
                       Autocomplete="off" 
-                      [(ngModel)]=" empData.first_name" #degree="ngModel"
+                      [(ngModel)]=" educationaldata.degree" #degree="ngModel"
                        pattern="[a-zA-Z\s]+"  
                        placeholder="Degree/B.Tech" required>
                        <mat-error *ngIf="degree.invalid &&(degree.dirty || degree.touched)">
@@ -366,9 +366,9 @@
                     </div>
                     <div class="col-lg-6">
                       <mat-form-field>
-                        <input matInput name="PG" 
+                        <input matInput name="pg" 
                         Autocomplete="off" 
-                        [(ngModel)]=" empData.first_name" #pg="ngModel"
+                        [(ngModel)]=" educationaldata.pg" #pg="ngModel"
                          pattern="[a-zA-Z\s]+"  
                          placeholder="Post Graduation" required>
                          <mat-error *ngIf="pg.invalid &&(pg.dirty || pg.touched)">
@@ -384,7 +384,7 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-secondary">Save changes</button>
+                    <button type="button" class="btn btn-secondary"  data-dismiss="modal" (click)="educationaldetails()">Save changes</button>
                   </div>
                 </div>
               </div>
