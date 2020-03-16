@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
+import Swal from 'sweetalert2'
+
 
 
 @Component({
@@ -45,6 +47,15 @@ export class ViewdetailsComponent implements OnInit {
     intermediate:'',
     degree:'',
     pg:''
+
+  }
+  bankdata={
+    accountholder:'',
+    accountnumber:'',
+    bankname:'',
+    pannumber:'',
+    ifsccode:'',
+    branch:'',
 
   }
   empData = { 
@@ -121,6 +132,58 @@ export class ViewdetailsComponent implements OnInit {
             this.collegeTwo=educationDetails.data.degree
             console.table(educationDetails)
       })
+
+  }
+  dankdetails(){
+    console.log("inside bankdetails");
+    const bankdetails= new FormData()
+    console.log(this.educationaldata+"data")
+    // console.log(this.leavedata.holidayType+"type")
+    bankdetails.append('Accountholdername',this.bankdata.accountholder)
+    bankdetails.append('Accountnumber',this.bankdata.accountnumber)
+    bankdetails.append('Bankname',this.bankdata.bankname)
+    bankdetails.append('pannumber',this.bankdata.pannumber)
+    bankdetails.append('IFSCcode',this.bankdata.ifsccode)
+    bankdetails.append('branch',this.bankdata.branch)
+    bankdetails.append('empname',localStorage.getItem('email'))
+    this._auth.bankdetails(bankdetails).subscribe((res)=>{
+      console.log(res);
+      // var jsonObj = JSON.parse( this.array2._body);
+      // console.log(jsonObj.msg)
+      // this.array2=res;
+    
+      // var jsonObj = JSON.parse( this.array2._body);
+      // console.log(jsonObj.msg)
+      // if(jsonObj.msg=="data inserted"){
+      //   Swal.fire('','upadated Sucessfuly','success')
+      //   this._router.navigate(['/homepage'])
+
+      // }
+      // else{
+      //   Swal.fire('','Failed to updated','error')
+      //   this._router.navigate(['/homepage'])
+      // }
+    })
+
+  }
+  viewbankdetails(){
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/getbankdetails',{
+      
+      empname:localStorage.getItem('email')
+    }).subscribe((res)=>{
+      console.log("bank details");
+        console.log(res);
+        this.bankdetailsarray=res;
+        var bankdetails = JSON.parse(this.bankdetailsarray._body);              
+          this.accountholder=bankdetails.data.Accountholdername         
+          this.accountnumber=bankdetails.data.Accountnumber
+          this.bankname=bankdetails.data.Bankname
+          this.pannumber=bankdetails.data.pannumber         
+          this.branch=bankdetails.data.branch
+          this.ifsccode=bankdetails.data.IFSCcode
+          console.log( this.ifsccode);
+          console.table(bankdetails)
+    })
 
   }
 

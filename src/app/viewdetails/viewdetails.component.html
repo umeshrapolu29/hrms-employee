@@ -25,7 +25,7 @@
  
   <a class="nav-link border  text-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="vieweducationdetails()">  <i class="fas fa-user-graduate mr-2"></i>Education Details</a>
      
-      <a class="nav-link border text-danger" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"> 
+      <a class="nav-link border text-danger" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false" (click)="viewbankdetails()"> 
       <i class="fas fa-university  mr-2"></i>
       Bank Details</a>
         <a class="nav-link border text-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
@@ -87,7 +87,7 @@
             </button>
             
             <!-- Modal -->
-            <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <!-- <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -267,7 +267,7 @@
                   </div>
                 </div>
               </div>
-            </div> 
+            </div>  -->
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <table class="table border border-left">
@@ -388,7 +388,7 @@
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
 
         </div>
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -398,39 +398,39 @@
             <tr>
             <td>Account Holder Name	</td>
             <td>:</td>
-            <td>kiran</td>
+            <td>{{accountholder}}</td>
             </tr>
             <tr>
             <td>Account Number	</td>
             <td>:</td>
-            <td>2121321313</td>
+            <td>{{accountnumber}}</td>
             </tr>
             <tr>
             <td>Bank Name</td>
             <td>:</td>
-            <td>ICICI</td>
+            <td>{{bankname}}</td>
             </tr>
             <tr>
             <td>PAN Number</td>
             <td>:</td>
-            <td>215415421</td>
+            <td>{{pannumber}}</td>
             </tr>
             <tr>
             <td>IFSC Code</td>
             <td>:</td>
-            <td>214215413215</td>
+            <td>{{ifsccode}}</td>
             </tr>
             <tr>
             <td>Branch</td>
             <td>:</td>
-            <td>Banjarahills</td>
+            <td>{{branch}}</td>
             </tr>
             </tbody>
             </table>
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#bankModalDetails">
               Edit
             </button>
-            <!-- <div class="modal fade" id="bankModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+             <div class="modal fade" id="bankModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -444,9 +444,9 @@
                       <div class="row">
                           <div class="col-lg-6">
                         <mat-form-field>
-                          <input matInput name="acHName" 
+                          <input matInput name="accountholder" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name" #hName="ngModel"
+                          [(ngModel)]=" bankdata.accountholder" #hName="ngModel"
                            pattern="[a-zA-Z\s]+"  
                            placeholder="Account Holder Name" required>
                            <mat-error *ngIf="hName.invalid &&(hName.dirty || hName.touched)">
@@ -461,9 +461,9 @@
                         </div>
                         <div class="col-lg-6">
                           <mat-form-field>
-                            <input matInput name="AcNo" 
+                            <input matInput name="accountnumber" 
                             Autocomplete="off" 
-                            [(ngModel)]=" empData.first_name" #AcNo="ngModel"
+                            [(ngModel)]=" bankdata.accountnumber" #AcNo="ngModel"
                              pattern="[0-9]+"  
                              placeholder="Account Number" required>
                              <mat-error *ngIf="AcNo.invalid &&(AcNo.dirty || AcNo.touched)">
@@ -482,9 +482,9 @@
                       <div class="row">
                         <div class="col-lg-6">
                       <mat-form-field>
-                        <input matInput name="bankName" 
+                        <input matInput name="bankname" 
                         Autocomplete="off" 
-                        [(ngModel)]=" empData.first_name" #bankName="ngModel"
+                        [(ngModel)]=" bankdata.bankname" #bankName="ngModel"
                          pattern="[a-zA-Z\s]+"  
                          placeholder="Bank Name" required>
                          <mat-error *ngIf="bankName.invalid &&(bankName.dirty || bankName.touched)">
@@ -499,9 +499,9 @@
                       </div>
                       <div class="col-lg-6">
                         <mat-form-field>
-                          <input matInput name="PanNo" 
+                          <input matInput name="pannumber" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name" #PanNo="ngModel"
+                          [(ngModel)]=" bankdata.pannumber" #PanNo="ngModel"
                            pattern="[0-9]+"  
                            placeholder="PAN Card Number" required>
                            <mat-error *ngIf="PanNo.invalid &&(PanNo.dirty || PanNo.touched)">
@@ -517,12 +517,12 @@
                     <div class="row">
                       <div class="col-lg-6">
                     <mat-form-field>
-                      <input matInput name="IFSCCode" 
+                      <input matInput name="ifsccode" 
                       Autocomplete="off" 
-                      [(ngModel)]=" empData.first_name" #IFSCCode="ngModel"
+                      [(ngModel)]=" bankdata.ifsccode" #IFSCCode="ngModel"
                        pattern="[a-zA-Z\s]+"  
                        placeholder="IFSC Code" required>
-                       <mat-error *ngIf="IFSCCode.invalid &&(IFSCCode.dirty || IFSCCode.touched)">
+                       <!-- <mat-error *ngIf="IFSCCode.invalid &&(IFSCCode.dirty || IFSCCode.touched)">
                          <div *ngIf="IFSCCode.hasError('required')">
                           Please Enter IFSC Code
                          </div>
@@ -531,18 +531,18 @@
         
                         </div> 
           
-                       </mat-error>
+                       </mat-error> -->
                     
                     </mat-form-field>
                     </div>
                     <div class="col-lg-6">
                       <mat-form-field>
-                        <input matInput name="branchName" 
+                        <input matInput name="branch" 
                         Autocomplete="off" 
-                        [(ngModel)]=" empData.first_name" #branchName="ngModel"
+                        [(ngModel)]=" bankdata.branch" #branchName="ngModel"
                          pattern="[0-9]+"  
                          placeholder="Branch Name" required>
-                         <mat-error *ngIf="branchName.invalid &&(branchName.dirty || branchName.touched)">
+                         <!-- <mat-error *ngIf="branchName.invalid &&(branchName.dirty || branchName.touched)">
                            <div *ngIf="branchName.hasError('required')">
                             Please Enter Branch Name
                            </div>
@@ -550,7 +550,7 @@
                           Please Enter Numbers Only.
         
                         </div> 
-                          </mat-error>
+                          </mat-error> -->
                     
                         </mat-form-field>
                     </div>
@@ -559,11 +559,11 @@
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" (click)="dankdetails()" data-dismiss="modal">Save changes</button>
                   </div>
                 </div>
               </div>
-            </div> -->
+            </div> 
 
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
