@@ -38,6 +38,7 @@ export class ViewdetailsComponent implements OnInit {
   branch:String=''
   ifsccode:String=''
   array2:any;
+  lastname:String=''
   leavedata={
    
     email:localStorage.getItem('email')
@@ -92,6 +93,9 @@ export class ViewdetailsComponent implements OnInit {
      this.email=jsonObj.data.email
     
       this.name=jsonObj.data.name
+      this.name=jsonObj.data.firstname
+      this.lastname=jsonObj.data.lastname
+      this.name=this.name+" "+ this.lastname
       this.id=jsonObj.data.fullid
       this.DOJ=jsonObj.data.DOJ
       this.DOB=jsonObj.data.DOB
