@@ -240,7 +240,7 @@ export class ViewdetailsComponent implements OnInit {
     })
   }
   viewpersonaldetails(){
-    this.http.post(' http://localhost:3001/user/getpersonaldetails',{
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/getpersonaldetails',{
       
       empname:localStorage.getItem('email')
     }).subscribe((res)=>{

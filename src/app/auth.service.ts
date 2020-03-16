@@ -32,7 +32,7 @@ export class AuthService {
   private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/forgotpassword";
   private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
   private _bankdetailsUrl = "https://hrmsbackend.herokuapp.com/user/bankdetails";
-  private _personaldetailsUrl = "http://localhost:3001/user/personaldetails";
+  private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
 
 
   constructor(private http: HttpClient,private http1: Http,
