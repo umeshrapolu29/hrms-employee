@@ -27,6 +27,13 @@ export class ViewdetailsComponent implements OnInit {
    
     email:localStorage.getItem('email')
   }
+  educationaldata={
+    tenth:'',
+    intermediate:'',
+    degree:'',
+    pg:''
+
+  }
   empData = { 
     
     token: localStorage.getItem('token'),
@@ -66,6 +73,20 @@ export class ViewdetailsComponent implements OnInit {
   }
 )
     
+  }
+  educationaldetails(){
+    const educationaldetails= new FormData()
+    console.log(this.educationaldata+"data")
+    // console.log(this.leavedata.holidayType+"type")
+    educationaldetails.append('tenth',this.educationaldata.tenth)
+    educationaldetails.append('intermediate',this.educationaldata.intermediate)
+    educationaldetails.append('degree',this.educationaldata.degree)
+    educationaldetails.append('pg',this.educationaldata.pg)
+    educationaldetails.append('empname',localStorage.getItem('viewdetailsemail1'))
+    this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
+      console.log(res);
+    })
+
   }
 
 }

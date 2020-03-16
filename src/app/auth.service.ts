@@ -30,6 +30,7 @@ export class AuthService {
   private _downloadpayslipsUrl = " https://hrmsbackend.herokuapp.com/user/getpayslips";
   private _resetpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/resetpassword";
   private _forgotpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/forgotpassword";
+  private _educationaldetailsUrl = "  http://localhost:3001/user/educationdetails";
 
   constructor(private http: HttpClient,private http1: Http,
     private _router: Router) { }
@@ -112,6 +113,11 @@ forgotpassword(getiprodata)
 {
   
   return this.http1.post(this._forgotpasswordUrl, getiprodata)
+}
+educationaldetails(getiprodata)
+{
+  
+  return this.http1.post(this._educationaldetailsUrl, getiprodata)
 }
 
 }

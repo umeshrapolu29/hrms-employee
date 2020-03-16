@@ -30,6 +30,8 @@
       Bank Details</a>
         <a class="nav-link border text-success" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">
             <i class="fas fa-briefcase  mr-2"></i>Company Details</a>
+            <a class="nav-link border text-success" id="v-pills-settings-tab1" data-toggle="pill" href="#v-pills-personal" role="tab" aria-controls="v-pills-settings-tab1" aria-selected="false">
+              <i class="fas fa-briefcase  mr-2"></i>personal Details</a>
       </div>
     </div>
     <div class="col-9">
@@ -80,6 +82,192 @@
             </tr>
             </tbody>
             </table>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EmployeeDetailsModal">
+              Edit
+            </button>
+            
+            <!-- Modal -->
+            <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Employee Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form" #regForm="ngForm" novalidate>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <mat-form-field>
+                          <input matInput name="firstName" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" empData.first_name" #firstname="ngModel"
+                           pattern="[a-zA-Z\s]+"  
+                           placeholder="First Name" required>
+                           <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
+                             <div *ngIf="firstname.hasError('required')">
+                              Please enter First Name
+                             </div>
+                             <div *ngIf="firstname.hasError('pattern')">
+                              please enter alphabets only.
+            
+                            </div>
+              
+                           </mat-error>
+                        
+                        </mat-form-field></div>
+                        <div class="col-lg-6">
+                                <mat-form-field>
+                                  <input matInput   name="last_name"
+                                  Autocomplete="off" 
+                                  [(ngModel)]=" empData.last_name" 
+                                  #lastname="ngModel" 
+                                  pattern="[a-zA-Z\s]+"
+                                  placeholder="Last Name" required>
+                                  <mat-error *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+                                    <div *ngIf="lastname.hasError('required')">
+                                      Please enter Last Name
+                                    </div>
+                                    <div *ngIf="lastname.hasError('pattern')">
+                                      please enter alphabets only.
+                                    </div>
+                                  </mat-error>
+                                </mat-form-field></div>
+                 </div>
+                 <div class="row">
+                  <div class="col-lg-6">
+                    <span class="input-group-text">Gender :</span>
+                    <div class="input-group">                                   
+                                                                  
+                            <input type="radio"   name="gender" required
+                            value="male" #gender="ngModel"
+                            [(ngModel)]=" empData.gender" class="mt-1">Male 
+    &nbsp;&nbsp;&nbsp;<input type="radio"   name="gender" 
+    value="female" required #gender="ngModel"
+    [(ngModel)]=" empData.gender"class="mt-1">Female
+   
+                          </div>
+                          <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+                            <div *ngIf="gender.hasError('required')"> 
+                              Please Select Gender
+                            </div>
+                          </mat-error>       
+             
+                  </div>
+                  <div class="col-lg-6 mt-3">
+                    <mat-form-field>
+                      <input type="date" name="DOB" 
+                      Autocomplete="off" 
+                      [(ngModel)]=" empData.DOB"  
+                      #Dob="ngModel"
+                      matInput 
+                      placeholder="DOB" required>
+                      <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                        <div *ngIf="Dob.hasError('required')">
+                         please enter Date of Birth
+                        </div>
+ 
+                      </mat-error>
+                      </mat-form-field>
+                  </div>
+                 </div>
+                 <div class="row">
+                  <div class="col-lg-6">
+                  <mat-form-field>
+                      <input type="email" name="email" 
+                      Autocomplete="off" 
+                      [(ngModel)]=" empData.email" matInput 
+                      #email="ngModel"
+                      pattern="(\W|^)[\w.+\-]*@zyclyx\.com(\W|$)"
+                      placeholder="Email" required>
+                      <mat-error *ngIf="email.invalid &&(email.dirty || email.touched)">
+                      <div *ngIf="email.hasError('required')">
+                        Please enter Email Id
+                      </div>
+                      <div *ngIf="email.hasError('pattern')">
+                        Please enter Zyclyx Email Id
+      
+                      </div>
+                      
+                    </mat-error>
+                     </mat-form-field></div>
+                     <div class="col-lg-6">
+                      <mat-form-field>
+                     <input matInput  name="phonenumber" 
+                     Autocomplete="off" 
+                     [(ngModel)]=" empData.phonenumber"
+                     #phoneno ="ngModel"
+                      pattern="[0-9]{10,10}"
+                      placeholder="Phone Number" required>
+                      <mat-error *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                        <div *ngIf="phoneno.hasError('required')">
+                          Please enter Mobile Number
+                        </div>
+                        
+                        <div *ngIf="phoneno.hasError('pattern')" >
+                          Please enter valid mobile number
+                        </div>
+                      </mat-error>
+                     </mat-form-field></div>
+           </div>
+           <div class="row">
+            <div class="col-lg-6">
+              <mat-form-field>
+                <textarea matInput name="LocalAddress" 
+                Autocomplete="off" 
+                [(ngModel)]=" empData.phonenumber"
+                #locAdd ="ngModel"
+               placeholder="Local Address" required></textarea>
+                 <mat-error *ngIf="locAdd.invalid && (locAdd.dirty || locAdd.touched)">
+                   <div *ngIf="locAdd.hasError('required')">
+                     Please enter Local Address
+                   </div>
+     
+                 </mat-error>
+                </mat-form-field></div>
+               <div class="col-lg-6">
+                <mat-form-field>
+               <textarea matInput name="permanentAddress" 
+               Autocomplete="off" 
+               [(ngModel)]=" empData.phonenumber"
+               #perAdd ="ngModel"
+              placeholder="Permanent Address" required></textarea>
+                <mat-error *ngIf="perAdd.invalid && (perAdd.dirty || perAdd.touched)">
+                  <div *ngIf="perAdd.hasError('required')">
+                    Please enter Permanent Address
+                  </div>
+    
+                </mat-error>
+               </mat-form-field></div>
+     </div>
+     <div class="row">
+      <div class="col-lg-6">
+      <mat-form-field>
+         <input type="text" name="bloodGroup" 
+         Autocomplete="off" 
+         [(ngModel)]=" empData.email" matInput 
+         #bloodGroup="ngModel"
+         
+         placeholder="Blood Group" required>
+         <mat-error *ngIf="bloodGroup.invalid &&(bloodGroup.dirty || bloodGroup.touched)">
+          <div *ngIf="bloodGroup.hasError('required')">
+            Please enter Blood Group
+          </div>
+                   
+        </mat-error>
+         </mat-form-field></div>
+     </div>
+                </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <table class="table border border-left">
@@ -108,6 +296,99 @@
             </tr>
             </tbody>
             </table> 
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#eduacationDetailsModal">
+              Edit
+            </button>
+            <div class="modal fade" id="eduacationDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Efduacation Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form" #regForm="ngForm" novalidate>
+                      <div class="row">
+                        <div class="col-lg-6">
+                      <mat-form-field>
+                        <input matInput name="tenth" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" empData.first_name" #tenth="ngModel"
+                         pattern="[a-zA-Z\s]+"  
+                         placeholder="Tenth class" required>
+                         <mat-error *ngIf="tenth.invalid &&(tenth.dirty || tenth.touched)">
+                           <div *ngIf="tenth.hasError('required')">
+                            Please enter Tenth  School Name
+                           </div>
+                       
+                         </mat-error>
+                      
+                      </mat-form-field>
+                      </div>
+                      <div class="col-lg-6">
+                        <mat-form-field>
+                          <input matInput name="inter" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" empData.first_name" #intermediate="ngModel"
+                           pattern="[a-zA-Z\s]+"  
+                           placeholder="intermediate" required>
+                           <mat-error *ngIf="intermediate.invalid &&(intermediate.dirty || intermediate.touched)">
+                             <div *ngIf="intermediate.hasError('required')">
+                              Please enter College Name
+                             </div>
+                            </mat-error>
+                      
+                          </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                    <mat-form-field>
+                      <input matInput name="degree" 
+                      Autocomplete="off" 
+                      [(ngModel)]=" empData.first_name" #degree="ngModel"
+                       pattern="[a-zA-Z\s]+"  
+                       placeholder="Degree/B.Tech" required>
+                       <mat-error *ngIf="degree.invalid &&(degree.dirty || degree.touched)">
+                         <div *ngIf="degree.hasError('required')">
+                          Please enter  College Name
+                         </div>
+                         <!-- <div *ngIf="firstname.hasError('pattern')">
+                          please enter alphabets only.
+        
+                        </div> -->
+          
+                       </mat-error>
+                    
+                    </mat-form-field>
+                    </div>
+                    <div class="col-lg-6">
+                      <mat-form-field>
+                        <input matInput name="PG" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" empData.first_name" #pg="ngModel"
+                         pattern="[a-zA-Z\s]+"  
+                         placeholder="Post Graduation" required>
+                         <mat-error *ngIf="pg.invalid &&(pg.dirty || pg.touched)">
+                           <div *ngIf="pg.hasError('required')">
+                            Please enter College Name
+                           </div>
+                          </mat-error>
+                    
+                        </mat-form-field>
+                    </div>
+                  </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
         </div>
         <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
@@ -146,6 +427,153 @@
             </tr>
             </tbody>
             </table>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#bankModalDetails">
+              Edit
+            </button>
+            <div class="modal fade" id="bankModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Bank Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form" #regForm="ngForm" novalidate>
+                      <div class="row">
+                          <div class="col-lg-6">
+                        <mat-form-field>
+                          <input matInput name="acHName" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" empData.first_name" #hName="ngModel"
+                           pattern="[a-zA-Z\s]+"  
+                           placeholder="Account Holder Name" required>
+                           <mat-error *ngIf="hName.invalid &&(hName.dirty || hName.touched)">
+                             <div *ngIf="hName.hasError('required')">
+                              Please Enter Account Holder Name
+                             </div>
+                             <!-- <div *ngIf="firstname.hasError('pattern')">
+                              please enter alphabets only.
+            
+                            </div> -->
+              
+                           </mat-error>
+                        
+                        </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                          <mat-form-field>
+                            <input matInput name="AcNo" 
+                            Autocomplete="off" 
+                            [(ngModel)]=" empData.first_name" #AcNo="ngModel"
+                             pattern="[0-9]+"  
+                             placeholder="Account Number" required>
+                             <mat-error *ngIf="AcNo.invalid &&(AcNo.dirty || AcNo.touched)">
+                               <div *ngIf="AcNo.hasError('required')">
+                                Please Enter Account Number
+                               </div>
+                              <div *ngIf="AcNo.hasError('pattern')">
+                              Please Enter Numbers Only.
+            
+                            </div> 
+                              </mat-error>
+                        
+                            </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                      <mat-form-field>
+                        <input matInput name="bankName" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" empData.first_name" #bankName="ngModel"
+                         pattern="[a-zA-Z\s]+"  
+                         placeholder="Bank Name" required>
+                         <mat-error *ngIf="bankName.invalid &&(bankName.dirty || bankName.touched)">
+                           <div *ngIf="bankName.hasError('required')">
+                            Please Enter Bank Name
+                           </div>
+                           <!-- <div *ngIf="firstname.hasError('pattern')">
+                            please enter alphabets only.
+          
+                          </div> -->
+            
+                         </mat-error>
+                      
+                      </mat-form-field>
+                      </div>
+                      <div class="col-lg-6">
+                        <mat-form-field>
+                          <input matInput name="PanNo" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" empData.first_name" #PanNo="ngModel"
+                           pattern="[0-9]+"  
+                           placeholder="PAN Card Number" required>
+                           <mat-error *ngIf="PanNo.invalid &&(PanNo.dirty || PanNo.touched)">
+                             <div *ngIf="PanNo.hasError('required')">
+                              Please Enter Account Number
+                             </div>
+                            <!-- <div *ngIf="firstname.hasError('pattern')">
+                            Please Enter Numbers Only.
+          
+                          </div>  -->
+                            </mat-error>
+                      
+                          </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                    <mat-form-field>
+                      <input matInput name="IFSCCode" 
+                      Autocomplete="off" 
+                      [(ngModel)]=" empData.first_name" #IFSCCode="ngModel"
+                       pattern="[a-zA-Z\s]+"  
+                       placeholder="IFSC Code" required>
+                       <mat-error *ngIf="IFSCCode.invalid &&(IFSCCode.dirty || IFSCCode.touched)">
+                         <div *ngIf="IFSCCode.hasError('required')">
+                          Please Enter IFSC Code
+                         </div>
+                         <!-- <div *ngIf="firstname.hasError('pattern')">
+                          please enter alphabets only.
+        
+                        </div> -->
+          
+                       </mat-error>
+                    
+                    </mat-form-field>
+                    </div>
+                    <div class="col-lg-6">
+                      <mat-form-field>
+                        <input matInput name="branchName" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" empData.first_name" #branchName="ngModel"
+                         pattern="[0-9]+"  
+                         placeholder="Branch Name" required>
+                         <mat-error *ngIf="branchName.invalid &&(branchName.dirty || branchName.touched)">
+                           <div *ngIf="branchName.hasError('required')">
+                            Please Enter Branch Name
+                           </div>
+                          <!-- <div *ngIf="firstname.hasError('pattern')">
+                          Please Enter Numbers Only.
+        
+                        </div>  -->
+                          </mat-error>
+                    
+                        </mat-form-field>
+                    </div>
+                  </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
         </div>
         <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
           <table class="table border border-left">
@@ -155,6 +583,11 @@
             <td>Employee ID</td>
             <td>:</td>
             <td>ZYX_02_20_2019</td>
+            </tr>
+            <tr>
+              <td>Full Name</td>
+              <td>:</td>
+              <td></td>
             </tr>
             <tr>
             <td>Department</td>
@@ -178,192 +611,198 @@
             </tr>
             </tbody>
             </table>
+            
+        </div>
+        <div class="tab-pane fade" id="v-pills-personal" role="tabpanel" aria-labelledby="v-pills-personal-tab">
+          <table class="table border border-left">
+      
+            <tbody>
+            <tr>
+            <td>Primary Email	</td>
+            <td>:</td>
+            <td>kiran</td>
+            </tr>
+            <tr>
+            <td>Secondary Email	</td>
+            <td>:</td>
+            <td>2121321313</td>
+            </tr>
+            <tr>
+              <td>
+                Primary Mobile Number
+              </td>
+              <td>:</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                Secondary Mobile Number
+              </td>
+              <td>:</td>
+              <td></td>
+            </tr>
+            <tr>
+            <td>Guardian</td>
+            <td>:</td>
+            <td>ICICI</td>
+            </tr>
+            <tr>
+            <td>Guardian Number</td>
+            <td>:</td>
+            <td>215415421</td>
+            </tr>
+           
+          
+            </tbody>
+            </table>
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#personalModalDetails">
+              Edit
+            </button>
+            <!-- <div class="modal fade" id="personalModalDetails" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Bank Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form class="form" #regForm="ngForm" novalidate>
+                      <div class="row">
+                          <div class="col-lg-6">
+                        <mat-form-field>
+                            <input type="email" name="PriEmail" 
+                            Autocomplete="off" 
+                            [(ngModel)]=" empData.email" matInput 
+                            #PriEmail="ngModel"
+                            pattern="([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})"
+                            placeholder="Primary Email" required>
+                            <mat-error *ngIf="PriEmail.invalid &&(PriEmail.dirty || PriEmail.touched)">
+                            <div *ngIf="PriEmail.hasError('required')">
+                              Please enter Email Id
+                            </div>
+                            <div *ngIf="PriEmail.hasError('pattern')">
+                              Please Enter Valid Email Id
+            
+                            </div>
+                            
+                          </mat-error>
+                        
+                        </mat-form-field>
+                        </div>
+                        <div class="col-lg-6">
+                          <mat-form-field>
+                              <input type="email" name="secEmail" 
+                              Autocomplete="off" 
+                              [(ngModel)]=" empData.email" matInput 
+                              #secEmail="ngModel"
+                              pattern="([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})"
+                              placeholder="Secondary Email">
+                              <mat-error *ngIf="secEmail.invalid &&(secEmail.dirty || secEmail.touched)">
+                              
+                              <div *ngIf="secEmail.hasError('pattern')">
+                                Please Enter Valid Email Id
+              
+                              </div>
+                              
+                            </mat-error>
+                        
+                            </mat-form-field>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-lg-6">
+                      <mat-form-field>
+                          <input matInput  name="pMobNo" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" empData.phonenumber"
+                          #pMobNo ="ngModel"
+                           pattern="[0-9]{10,10}"
+                           placeholder="Primary Phone Number" required>
+                           <mat-error *ngIf="pMobNo.invalid && (pMobNo.dirty || pMobNo.touched)">
+                             <div *ngIf="pMobNo.hasError('required')">
+                               Please Enter Primary  Mobile Number
+                             </div>
+                             
+                             <div *ngIf="pMobNo.hasError('pattern')" >
+                               Please enter valid mobile number
+                             </div>
+                           </mat-error>
+                      
+                      </mat-form-field>
+                      </div>
+                      <div class="col-lg-6">
+                        <mat-form-field>
+                            <input matInput  name="sMobNo" 
+                            Autocomplete="off" 
+                            [(ngModel)]=" empData.phonenumber"
+                            #sMobNo ="ngModel"
+                             pattern="[0-9]{10,10}"
+                             placeholder="Secondary Phone Number" required>
+                             <mat-error *ngIf="sMobNo.invalid && (sMobNo.dirty || sMobNo.touched)">
+                               <div *ngIf="sMobNo.hasError('required')">
+                                 Please Enter Secondary Mobile Number
+                               </div>
+                               
+                               <div *ngIf="pMobNo.hasError('pattern')" >
+                                 Please enter valid mobile number
+                               </div>
+                             </mat-error>
+                    </mat-form-field>
+                    </div>
+                    <div class="row">
+                    <div class="col-lg-6">
+                      <mat-form-field>
+                        <input matInput name="guardianName" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" empData.first_name" #guardianName="ngModel"
+                         pattern="[0-9]+"  
+                         placeholder="guardian Name" required>
+                         <mat-error *ngIf="guardianName.invalid &&(guardianName.dirty || guardianName.touched)">
+                           <div *ngIf="guardianName.hasError('required')">
+                            Please Enter Guardian Name
+                           </div>
+                           <div *ngIf="firstname.hasError('pattern')">
+                          Please Enter Numbers Only.
+        
+                        </div>  
+                          </mat-error>
+                    
+                        </mat-form-field>
+                    </div>
+                    <div class="col-lg-6">
+                        <mat-form-field>
+                            <input matInput  name="guardianMobNo" 
+                            Autocomplete="off" 
+                            [(ngModel)]=" empData.phonenumber"
+                            #guardianMobNo ="ngModel"
+                             pattern="[0-9]{10,10}"
+                             placeholder="Guardian Phone Number" required>
+                             <mat-error *ngIf="guardianMobNo.invalid && (guardianMobNo.dirty || guardianMobNo.touched)">
+                               <div *ngIf="guardianMobNo.hasError('required')">
+                                 Please Enter Guardian Mobile Number
+                               </div>
+                               
+                               <div *ngIf="guardianMobNo.hasError('pattern')" >
+                                 Please enter valid mobile number
+                               </div>
+                             </mat-error>
+                        
+                        </mat-form-field>
+                    </div>
+                  </div>
+                    </form>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
+            </div> -->
         </div>
       </div>
     </div>
   </div>
 
-<!-- <div class="row viewDetails" >
-
-  <div class="col-sm-6 px-2">
-  <div class="card m-2">
-  <div class="card-body">
-
-  <div class="row">
-		  <div class="col-sm-4 text-center">
-		  <i class="fas fa-user-tie fa-4x mb-4"></i>
-		  <h5 class="font-weight-bold ">Employee Details</h5>
-		  </div>
-  
-  
-  <div class="col-sm-8">
-  <table class="table table-hover table-borderless border-left">
-  <tbody>
-  <tr>
-  <td>ID</td>
-  <td>{{id}}</td>
-  </tr>
-  <tr>
-  <td>Phone</td>
-  <td>{{phone}}</td>
-  </tr>
-  <tr>
-  <td>DOB</td>
-  <td>{{DOB}}</td>
-  </tr>
-  <tr>
-  <td>Gender</td>
-  <td>{{gender}}</td>
-  </tr>
-  <tr>
-  <td>Email-1</td>
-  <td>{{email}}</td>
-  </tr>
-  
-  <tr>
-  <td>B.Group</td>
-  <td>B +ve</td>
-  </tr>
-  <tr>
-  <td>Local Address</td>
-  <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
-  </tr>
-  <tr>
-  <td>Perminant Address</td>
-  <td>R.No:5, Banjarahills, Hyderabad, Telangana.</td>
-  </tr>
-  </tbody>
-  </table>
-  </div>
-</div>
-  </div>
-
-
-  </div>
-  <div class="card  m-2">
-      <div class="card-body">
-      <div class="row">
-      <div class="col-sm-4 text-center">
-      <i class="fas fa-university fa-4x mb-4"></i>
-      <h5  class="font-weight-bold ">Bank Details</h5>
-      </div>
-      <div class="col-sm-8">
-      <table class="table table-borderless border-left">
-      
-      <tbody>
-      <tr>
-      <td>Account Holder Name	</td>
-      <td>kiran</td>
-      </tr>
-      <tr>
-      <td>Account Number	</td>
-      <td>2121321313</td>
-      </tr>
-      <tr>
-      <td>Bank Name</td>
-      <td>ICICI</td>
-      </tr>
-      <tr>
-      <td>PAN Number</td>
-      <td>215415421</td>
-      </tr>
-      <tr>
-      <td>IFSC Code</td>
-      <td>214215413215</td>
-      </tr>
-      <tr>
-      <td>Branch</td>
-      <td>Banjarahills</td>
-      </tr>
-      </tbody>
-      </table>
-      </div>
-      </div>
-      </div>
-      </div>
-  </div>
-
-  <div class="col-sm-6 p-0">
-  <div class="card m-2 ">
-  <div class="card-body">
-  <div class="row">
-  <div class="col-sm-4 text-center">
-  <i class="fas fa-user-graduate fa-4x mb-4"></i>
-  <h5 class="font-weight-bold ">Education Details</h5>
-  </div>
-  
-  
-  <div class="col-sm-8">
-  <table class="table table-borderless border-left">
-  <thead>
-  <tr>
-  <th scope="col" class="font-weight-bold">Qualification</th>
-  <th scope="col" class="font-weight-bold">Institution Name</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr>
-  <td>SSC</td>
-  <td>Govt. High School</td>
-  </tr>
-  <tr>
-  <td>+2</td>
-  <td>Ekashila Jr. College</td>
-  </tr>
-  <tr>
-  <td>Degree</td>
-  <td>Gurunanak Institute of Technical Campus</td>
-  </tr>
-  </tbody>
-  </table>
-  </div>
-</div>
-  
-  </div>
-  </div>
-  
-  <div class="card m-2">
-  <div class="card-body">
-      <div class="row">
-      <div class="col-sm-4 text-center">
-      <i class="fas fa-briefcase fa-4x mb-4"></i>
-      <h5 class="font-weight-bold">Company Details</h5>
-      </div>
-      
-      
-      <div class="col-sm">
-      <table class="table table-borderless border-left">
-      
-      <tbody>
-      <tr>
-      <td>Employee ID</td>
-      <td>ZYX_02_20_2019</td>
-      </tr>
-      <tr>
-      <td>Department</td>
-      <td>ALL</td>
-      </tr>
-      <tr>
-      <td>Designation</td>
-      <td>Developer</td>
-      </tr>
-      <tr>
-      <td>Date of Joining</td>
-      <td>02-Jan-2019</td>
-      </tr>
-      <tr>
-      <td>Salary ( $ )</td>
-      <td>40,000PM</td>
-      </tr>
-      </tbody>
-      </table>
-      </div>
-  
-  
-    </div>
-    </div>
-    </div>
-	
-</div>
-  
-  </div> -->
