@@ -4,6 +4,9 @@
     font-family: "Poppins"!important;
   
 }
+.fa-power-off{
+    color: red;
+}
 
 .bg-icon {
     background: #2d2d2d;
@@ -16,6 +19,13 @@
 .logo img{
     height:26px;
      width:125px;
+}
+.fa-user{
+    color: #d29d34;
+}
+.fa-user-alt:before {
+    content: "\f406";
+    color: red;
 }
 /* .fa-caret-left:active{
     transform: rotate(270deg); 
