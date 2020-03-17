@@ -24,6 +24,13 @@ export class ViewdetailsComponent implements OnInit {
   phone:string;
   photo:string;
   gender:string;
+  reportingmanager:string;
+  nexttoreportingmanager:string;
+  hrmanager:String;
+
+
+
+
   id:number;
   bankdetailsarray:any;
   bankdetails:any;
@@ -117,9 +124,14 @@ export class ViewdetailsComponent implements OnInit {
       this.id=jsonObj.data.fullid
       this.DOJ=jsonObj.data.DOJ
       this.DOB=jsonObj.data.DOB
+      this.reportingmanager=jsonObj.data.reportmanager
+      this.nexttoreportingmanager=jsonObj.data.immediatereportmanager
+      this.hrmanager=jsonObj.data.HRmanager
       this.phone=jsonObj.data.phonenumber
     this.gender=jsonObj.data.gender
     this.photo=jsonObj.data.photo
+
+    console.log(this.reportingmanager+"manager is")
 
   }
 )
