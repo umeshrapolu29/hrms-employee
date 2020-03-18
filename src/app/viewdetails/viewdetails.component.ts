@@ -45,6 +45,7 @@ export class ViewdetailsComponent implements OnInit {
   branch:String=''
   ifsccode:String=''
   array2:any;
+  array3:any;
   lastname:String='';
   primaryemail:String='';
   secondaryemail:String='';
@@ -148,6 +149,19 @@ export class ViewdetailsComponent implements OnInit {
     educationaldetails.append('empname',localStorage.getItem('email'))
     this._auth.educationaldetails(educationaldetails).subscribe((res)=>{
       console.log(res);
+      this.array3=res;
+    
+      var jsonObj = JSON.parse( this.array3._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
+
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
     })
 
   }
@@ -184,19 +198,19 @@ export class ViewdetailsComponent implements OnInit {
       console.log(res);
       // var jsonObj = JSON.parse( this.array2._body);
       // console.log(jsonObj.msg)
-      // this.array2=res;
+      this.array2=res;
     
-      // var jsonObj = JSON.parse( this.array2._body);
-      // console.log(jsonObj.msg)
-      // if(jsonObj.msg=="data inserted"){
-      //   Swal.fire('','upadated Sucessfuly','success')
-      //   this._router.navigate(['/homepage'])
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
 
-      // }
-      // else{
-      //   Swal.fire('','Failed to updated','error')
-      //   this._router.navigate(['/homepage'])
-      // }
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
     })
 
   }

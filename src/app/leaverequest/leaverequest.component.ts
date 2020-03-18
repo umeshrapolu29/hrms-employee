@@ -50,7 +50,10 @@ export class LeaverequestComponent implements OnInit {
 
 
   ngOnInit() {
-    let date=new Date()
+    var date= Date.now()
+    console.log(date+"date is")
+
+  
     console.log("inside leaverequest")
  
    
