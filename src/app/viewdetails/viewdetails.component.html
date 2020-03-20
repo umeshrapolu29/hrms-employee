@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-3 font-weight-bold tabs">
       <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active border" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"> <i class="fas fa-user-tie fa-1x mr-2"></i>Employee Details </a>
+        <a class="nav-link active border" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" (click)="viewprofiledetails()"> <i class="fas fa-user-tie fa-1x mr-2"></i>Employee Details </a>
  
   <a class="nav-link border  text-warning" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" (click)="vieweducationdetails()">  <i class="fas fa-user-graduate mr-2"></i>Education Details</a>
      
@@ -95,12 +95,12 @@
            
             </tbody>
             </table>
-            <!-- <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EmployeeDetailsModal">
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#EmployeeDetailsModal">
               Edit
-            </button> -->
+            </button>
             
             <!-- Modal -->
-            <!-- <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+            <div class="modal fade" id="EmployeeDetailsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -114,11 +114,11 @@
                     <div class="row">
                       <div class="col-lg-6">
                         <mat-form-field>
-                          <input matInput name="firstName" 
+                          <input matInput name="fullname" 
                           Autocomplete="off" 
-                          [(ngModel)]=" empData.first_name" #firstname="ngModel"
+                          [(ngModel)]="profiledetailsdata.fullname" #firstname="ngModel"
                            pattern="[a-zA-Z\s]+"  
-                           placeholder="First Name" required>
+                           placeholder="Full Name" required>
                            <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
                              <div *ngIf="firstname.hasError('required')">
                               Please enter First Name
@@ -131,67 +131,74 @@
                            </mat-error>
                         
                         </mat-form-field></div>
-                        <div class="col-lg-6">
-                                <mat-form-field>
-                                  <input matInput   name="last_name"
-                                  Autocomplete="off" 
-                                  [(ngModel)]=" empData.last_name" 
-                                  #lastname="ngModel" 
-                                  pattern="[a-zA-Z\s]+"
-                                  placeholder="Last Name" required>
-                                  <mat-error *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
-                                    <div *ngIf="lastname.hasError('required')">
-                                      Please enter Last Name
-                                    </div>
-                                    <div *ngIf="lastname.hasError('pattern')">
-                                      please enter alphabets only.
-                                    </div>
-                                  </mat-error>
-                                </mat-form-field></div>
+                        
+                                <div class="col-lg-6 mt-3">
+                                    <mat-form-field>
+                                      <input type="date" name="DOB" 
+                                      Autocomplete="off" 
+                                      [(ngModel)]=" profiledetailsdata.DOB"  
+                                      #Dob="ngModel"
+                                      matInput 
+                                      placeholder="DOB" required>
+                                      <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                                        <div *ngIf="Dob.hasError('required')">
+                                         please enter Date of Birth
+                                        </div>
+                 
+                                      </mat-error>
+                                      </mat-form-field>
+                                  </div>
+                           
                  </div>
                  <div class="row">
-                  <div class="col-lg-6">
-                    <span class="input-group-text">Gender :</span>
-                    <div class="input-group">                                   
-                                                                  
-                            <input type="radio"   name="gender" required
-                            value="male" #gender="ngModel"
-                            [(ngModel)]=" empData.gender" class="mt-1">Male 
-    &nbsp;&nbsp;&nbsp;<input type="radio"   name="gender" 
-    value="female" required #gender="ngModel"
-    [(ngModel)]=" empData.gender"class="mt-1">Female
-   
-                          </div>
-                          <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
-                            <div *ngIf="gender.hasError('required')"> 
-                              Please Select Gender
+
+
+                    <div class="col-lg-6 mt-3">
+                        <mat-form-field>
+                          <input type="date" name="DOJ" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" profiledetailsdata.DOJ"  
+                          #Dob="ngModel"
+                          matInput 
+                          placeholder="DOJ" required>
+                          <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                            <div *ngIf="Dob.hasError('required')">
+                             please enter Date of Birth
                             </div>
-                          </mat-error>       
-             
-                  </div>
-                  <div class="col-lg-6 mt-3">
-                    <mat-form-field>
-                      <input type="date" name="DOB" 
-                      Autocomplete="off" 
-                      [(ngModel)]=" empData.DOB"  
-                      #Dob="ngModel"
-                      matInput 
-                      placeholder="DOB" required>
-                      <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
-                        <div *ngIf="Dob.hasError('required')">
-                         please enter Date of Birth
-                        </div>
- 
-                      </mat-error>
-                      </mat-form-field>
-                  </div>
+     
+                          </mat-error>
+                          </mat-form-field>
+                      </div>
+
+
+                    <div class="col-lg-6">
+                        <span class="input-group-text">Gender :</span>
+                        <div class="input-group">                                   
+                                                                      
+                                <input type="radio"   name="gender" required
+                                value="male" #gender="ngModel"
+                                [(ngModel)]=" profiledetailsdata.gender" class="mt-1">Male 
+        &nbsp;&nbsp;&nbsp;<input type="radio"   name="gender" 
+        value="female" required #gender="ngModel"
+        [(ngModel)]=" empData.gender"class="mt-1">Female
+       
+                              </div>
+                              <mat-error *ngIf="gender.invalid && (gender.dirty || gender.touched)">
+                                <div *ngIf="gender.hasError('required')"> 
+                                  Please Select Gender
+                                </div>
+                              </mat-error>       
+                 
+                      </div>
+               
+               
                  </div>
                  <div class="row">
                   <div class="col-lg-6">
                   <mat-form-field>
                       <input type="email" name="email" 
                       Autocomplete="off" 
-                      [(ngModel)]=" empData.email" matInput 
+                      [(ngModel)]=" profiledetailsdata.email" matInput 
                       #email="ngModel"
                       pattern="(\W|^)[\w.+\-]*@zyclyx\.com(\W|$)"
                       placeholder="Email" required>
@@ -208,9 +215,9 @@
                      </mat-form-field></div>
                      <div class="col-lg-6">
                       <mat-form-field>
-                     <input matInput  name="phonenumber" 
+                     <input matInput  name="phone" 
                      Autocomplete="off" 
-                     [(ngModel)]=" empData.phonenumber"
+                     [(ngModel)]=" profiledetailsdata.phone"
                      #phoneno ="ngModel"
                       pattern="[0-9]{10,10}"
                       placeholder="Phone Number" required>
@@ -228,11 +235,11 @@
            <div class="row">
             <div class="col-lg-6">
               <mat-form-field>
-                <textarea matInput name="LocalAddress" 
+                <textarea matInput name="reportingmanager" 
                 Autocomplete="off" 
-                [(ngModel)]=" empData.phonenumber"
+                [(ngModel)]=" profiledetailsdata.reportingmanager"
                 #locAdd ="ngModel"
-               placeholder="Local Address" required></textarea>
+               placeholder="ReportingManager" required></textarea>
                  <mat-error *ngIf="locAdd.invalid && (locAdd.dirty || locAdd.touched)">
                    <div *ngIf="locAdd.hasError('required')">
                      Please enter Local Address
@@ -242,11 +249,11 @@
                 </mat-form-field></div>
                <div class="col-lg-6">
                 <mat-form-field>
-               <textarea matInput name="permanentAddress" 
+               <textarea matInput name="nextreportingmanager" 
                Autocomplete="off" 
-               [(ngModel)]=" empData.phonenumber"
+               [(ngModel)]=" profiledetailsdata.nextreportingmanager"
                #perAdd ="ngModel"
-              placeholder="Permanent Address" required></textarea>
+              placeholder="Next Reporting Manager" required></textarea>
                 <mat-error *ngIf="perAdd.invalid && (perAdd.dirty || perAdd.touched)">
                   <div *ngIf="perAdd.hasError('required')">
                     Please enter Permanent Address
@@ -258,12 +265,12 @@
      <div class="row">
       <div class="col-lg-6">
       <mat-form-field>
-         <input type="text" name="bloodGroup" 
+         <input type="text" name="hrmanager" 
          Autocomplete="off" 
-         [(ngModel)]=" empData.email" matInput 
+         [(ngModel)]=" profiledetailsdata.hrmanager" matInput 
          #bloodGroup="ngModel"
          
-         placeholder="Blood Group" required>
+         placeholder="HR Manager" required>
          <mat-error *ngIf="bloodGroup.invalid &&(bloodGroup.dirty || bloodGroup.touched)">
           <div *ngIf="bloodGroup.hasError('required')">
             Please enter Blood Group
@@ -271,16 +278,17 @@
                    
         </mat-error>
          </mat-form-field></div>
+        
      </div>
                 </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" (click)="editprofile()">Save changes</button>
                   </div>
                 </div>
               </div>
-            </div>  -->
+            </div> 
         </div>
         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
           <table class="table border border-left">
@@ -307,6 +315,11 @@
             <td>:</td>
             <td>{{collegeTwo}}</td>
             </tr>
+            <tr>
+              <td>PG</td>
+              <td>:</td>
+              <td>{{collegeThree}}</td>
+              </tr>
             </tbody>
             </table> 
             <button type="button" class="btn btn-info" data-toggle="modal" data-target="#eduacationDetailsModal">

@@ -33,6 +33,7 @@ export class AuthService {
   private _educationaldetailsUrl = "  https://hrmsbackend.herokuapp.com/user/educationdetails";
   private _bankdetailsUrl = "https://hrmsbackend.herokuapp.com/user/bankdetails";
   private _personaldetailsUrl = "https://hrmsbackend.herokuapp.com/user/personaldetails";
+  private _profiledetailsUrl = "http://localhost:3001/user/editprofiledetails";
 
 
   constructor(private http: HttpClient,private http1: Http,
@@ -131,6 +132,11 @@ personaldetails(getiprodata)
 {
   
   return this.http1.post(this._personaldetailsUrl, getiprodata)
+}
+profileldetails(getiprodata)
+{
+  
+  return this.http1.post(this._profiledetailsUrl, getiprodata)
 }
 
 }

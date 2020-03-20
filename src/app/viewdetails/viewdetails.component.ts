@@ -37,6 +37,8 @@ export class ViewdetailsComponent implements OnInit {
   school:string='';
   collegeOne:string='';
   collegeTwo:String='';
+  collegeThree:String='';
+
   pg:String='';
   accountholder:String=''
   accountnumber:String=''
@@ -83,6 +85,18 @@ export class ViewdetailsComponent implements OnInit {
     secondaryphone:'',
     guardian:'',
     guardiannumber:'',
+
+  }
+  profiledetailsdata={
+    fullname:'',
+    DOB:'',
+    DOJ:'',
+    email:'',
+    phone:'',
+    gender:'',
+    reportingmanager:'',
+    nextreportingmanager:'',
+    hrmanager:'',
 
   }
   empData = { 
@@ -178,6 +192,7 @@ export class ViewdetailsComponent implements OnInit {
             this.school=educationDetails.data.tenth         
             this.collegeOne=educationDetails.data.intermediate
             this.collegeTwo=educationDetails.data.degree
+            this.collegeThree=educationDetails.data.pg
             console.table(educationDetails)
       })
 
@@ -282,6 +297,43 @@ export class ViewdetailsComponent implements OnInit {
           this.guardianphone=personaldetails1.data.gaurdainnumber
           console.log( this.ifsccode);
           console.table(personaldetails1)
+    })
+  }
+  editprofile(){
+    const profiledetails= new FormData()
+    console.log(this.profiledetailsdata)
+    // console.log(this.leavedata.holidayType+"type")
+    profiledetails.append('fullname',this.profiledetailsdata.fullname)
+    profiledetails.append('DOB',this.profiledetailsdata.DOB)
+    profiledetails.append('DOJ',this.profiledetailsdata.DOJ)
+    profiledetails.append('email',this.profiledetailsdata.email)
+    profiledetails.append('gender',this.profiledetailsdata.gender)
+    profiledetails.append('reportingmanager',this.profiledetailsdata.reportingmanager)
+ 
+    profiledetails.append('nextreportingmanager',this.profiledetailsdata.nextreportingmanager)
+    profiledetails.append('hrmanager',this.profiledetailsdata.hrmanager)
+    profiledetails.append('empname',localStorage.getItem('email'))
+    this._auth.profileldetails(profiledetails).subscribe((res)=>{
+      console.log(res);
+    })
+  }
+  viewprofiledetails(){
+    this.http.post(' http://localhost:3001/user/getprofiledetails',{
+      
+      empname:localStorage.getItem('email')
+    }).subscribe((res)=>{
+      console.log("personal details");
+        console.log(res);
+        // this.personaldetailsarray=res;
+        // var personaldetails1 = JSON.parse(this.personaldetailsarray._body);              
+        //   this.primaryemail=personaldetails1.data.primaryemailid         
+        //   this.secondaryemail=personaldetails1.data.secondaryemailid
+        //   this.primaryphone=personaldetails1.data.primaryphone
+        //   this.secondaryphone=personaldetails1.data.secondaryphone         
+        //   this.guardian=personaldetails1.data.gaurdain
+        //   this.guardianphone=personaldetails1.data.gaurdainnumber
+        //   console.log( this.ifsccode);
+        //   console.table(personaldetails1)
     })
   }
 
