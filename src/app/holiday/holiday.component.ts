@@ -37,7 +37,7 @@ export class HolidayComponent implements OnInit {
      fromDate:'',
      toDate:'',
      reason:'',
-     holidayType:'NationalHoliday',
+     holidayType:'MandatoryHoliday',
      holidayType1:'OptionalHoliday',
     
      fullid:localStorage.getItem('fullid')
