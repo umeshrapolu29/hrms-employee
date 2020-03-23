@@ -48,6 +48,7 @@ export class ViewdetailsComponent implements OnInit {
   ifsccode:String=''
   array2:any;
   array3:any;
+  viewprofile:any;
   lastname:String='';
   primaryemail:String='';
   secondaryemail:String='';
@@ -137,6 +138,7 @@ export class ViewdetailsComponent implements OnInit {
       this.lastname=jsonObj.data.lastname
       this.name=this.name+" "+ this.lastname
       this.id=jsonObj.data.fullid
+      localStorage.setItem('fid','this.id')
       this.DOJ=jsonObj.data.DOJ
       this.DOB=jsonObj.data.DOB
       this.reportingmanager=jsonObj.data.reportmanager
@@ -308,6 +310,7 @@ export class ViewdetailsComponent implements OnInit {
     profiledetails.append('DOJ',this.profiledetailsdata.DOJ)
     profiledetails.append('email',this.profiledetailsdata.email)
     profiledetails.append('gender',this.profiledetailsdata.gender)
+    profiledetails.append('phone',this.profiledetailsdata.phone)
     profiledetails.append('reportingmanager',this.profiledetailsdata.reportingmanager)
  
     profiledetails.append('nextreportingmanager',this.profiledetailsdata.nextreportingmanager)
@@ -315,25 +318,46 @@ export class ViewdetailsComponent implements OnInit {
     profiledetails.append('empname',localStorage.getItem('email'))
     this._auth.profileldetails(profiledetails).subscribe((res)=>{
       console.log(res);
+      this.array2=res;
+    
+      var jsonObj = JSON.parse( this.array2._body);
+      console.log(jsonObj.msg)
+      if(jsonObj.msg=="data inserted"){
+        Swal.fire('','upadated Sucessfuly','success')
+        this._router.navigate(['/homepage'])
+
+      }
+      else{
+        Swal.fire('','Failed to updated','error')
+        this._router.navigate(['/homepage'])
+      }
     })
   }
   viewprofiledetails(){
+    console.log("inside viewprofile");
     this.http.post(' http://localhost:3001/user/getprofiledetails',{
       
       empname:localStorage.getItem('email')
     }).subscribe((res)=>{
       console.log("personal details");
         console.log(res);
-        // this.personaldetailsarray=res;
-        // var personaldetails1 = JSON.parse(this.personaldetailsarray._body);              
-        //   this.primaryemail=personaldetails1.data.primaryemailid         
-        //   this.secondaryemail=personaldetails1.data.secondaryemailid
-        //   this.primaryphone=personaldetails1.data.primaryphone
-        //   this.secondaryphone=personaldetails1.data.secondaryphone         
-        //   this.guardian=personaldetails1.data.gaurdain
-        //   this.guardianphone=personaldetails1.data.gaurdainnumber
-        //   console.log( this.ifsccode);
-        //   console.table(personaldetails1)
+        this.viewprofile=res;
+        var jsonObj = JSON.parse(this.viewprofile._body);
+        console.log(jsonObj.data);
+        this.email=jsonObj.data.email
+    
+        // this.name=jsonObj.data.name
+        this.name=jsonObj.data.fullname
+        // this.lastname=jsonObj.data.lastname
+        // this.name=this.name+" "+ this.lastname
+        this.phone=jsonObj.data.phone;
+        this.gender=jsonObj.data.gender;
+      // this.id=localStorage.getItem('fid')
+        this.DOJ=jsonObj.data.DOJ
+        this.DOB=jsonObj.data.DOB
+        this.reportingmanager=jsonObj.data.reportingmanager
+        this.nexttoreportingmanager=jsonObj.data.nextreportingmanager
+        this.hrmanager=jsonObj.data.hrmanager
     })
   }
 

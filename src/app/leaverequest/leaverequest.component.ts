@@ -86,6 +86,7 @@ export class LeaverequestComponent implements OnInit {
     leaveempdata.append('todate',this. leavedata.toDate);
     leaveempdata.append('reason', this. leavedata.reason);
     leaveempdata.append('requestto', this. leavedata.email);
+    leaveempdata.append('empname', this. leavedata.email);
     leaveempdata.append('name', this.leavedata.name);
     leaveempdata.append('emailto', this.leavedata.emailto);
     console.log(this.leavedata.name)
