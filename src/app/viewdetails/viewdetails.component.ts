@@ -335,7 +335,7 @@ export class ViewdetailsComponent implements OnInit {
   }
   viewprofiledetails(){
     console.log("inside viewprofile");
-    this.http.post(' http://localhost:3001/user/getprofiledetails',{
+    this.http.post(' https://hrmsbackend.herokuapp.com/user/getprofiledetails',{
       
       empname:localStorage.getItem('email')
     }).subscribe((res)=>{
