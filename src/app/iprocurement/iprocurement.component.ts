@@ -91,6 +91,7 @@ addiprocurement1(){
   iprocurementdata.append('amount',this.empData.amount)
   iprocurementdata.append('email',this.empData.email)
   iprocurementdata.append('employeename',this.empData.name)
+  iprocurementdata.append('empname',localStorage.getItem('email'))
 
   console.log(this.empData )
   console.log(iprocurementdata+"data")
