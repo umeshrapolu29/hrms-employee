@@ -15,7 +15,7 @@ import Swal from 'sweetalert2'
 export class ViewdetailsComponent implements OnInit {
   employees={token: localStorage.getItem('token')};
   array:any;
-  email:String='';
+  email1:String='';
   found:boolean=false;
   image:String='';
   name:string;
@@ -23,7 +23,7 @@ export class ViewdetailsComponent implements OnInit {
   DOB:string;
   phone:string;
   photo:string;
-  gender:string;
+  gender11:string='';
   reportingmanager:string;
   nexttoreportingmanager:string;
   hrmanager:String;
@@ -131,7 +131,7 @@ export class ViewdetailsComponent implements OnInit {
         console.log(jsonObj)
         this.photo=jsonObj.data.file
         console.log(this.photo)
-     this.email=jsonObj.data.email
+     this.email1=jsonObj.data.email
     
       this.name=jsonObj.data.name
       this.name=jsonObj.data.firstname
@@ -145,7 +145,7 @@ export class ViewdetailsComponent implements OnInit {
       this.nexttoreportingmanager=jsonObj.data.immediatereportmanager
       this.hrmanager=jsonObj.data.HRmanager
       this.phone=jsonObj.data.phonenumber
-    this.gender=jsonObj.data.gender
+    this.gender11=jsonObj.data.gender
     this.photo=jsonObj.data.photo
 
     console.log(this.reportingmanager+"manager is")
@@ -344,14 +344,14 @@ export class ViewdetailsComponent implements OnInit {
         this.viewprofile=res;
         var jsonObj = JSON.parse(this.viewprofile._body);
         console.log(jsonObj.data);
-        this.email=jsonObj.data.email
+        this.email1=jsonObj.data.email
     
         // this.name=jsonObj.data.name
         this.name=jsonObj.data.fullname
         // this.lastname=jsonObj.data.lastname
         // this.name=this.name+" "+ this.lastname
         this.phone=jsonObj.data.phone;
-        this.gender=jsonObj.data.gender;
+        this.gender11=jsonObj.data.gender;
       // this.id=localStorage.getItem('fid')
         this.DOJ=jsonObj.data.DOJ
         this.DOB=jsonObj.data.DOB
