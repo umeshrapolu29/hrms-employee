@@ -39,7 +39,7 @@
     <input type="password" class="form-control" placeholder="password" name="password"  [(ngModel)]="loginUserData.password"  aria-label="pswd" aria-describedby="addon-wrapping">
   </div>
   <div class="login">
-    <button type="button" class="btn btn-warning btn-block my-4" (click)="loginUser()">Login</button>
+    <button type="submit" class="btn btn-warning btn-block my-4" (click)="loginUser()">Login</button>
     <a href="#" class="text-warning" [routerLink]="['/forgotpassword']">Lost your password?</a>
   </div>
   
