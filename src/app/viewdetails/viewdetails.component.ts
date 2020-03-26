@@ -55,6 +55,7 @@ export class ViewdetailsComponent implements OnInit {
   primaryphone:String=''
   secondaryphone:String=''
   guardian:String=''
+  empid:String=''
   guardianphone:String='';
   personaldetailsarray:any
   personaldetails1:any;
@@ -147,6 +148,10 @@ export class ViewdetailsComponent implements OnInit {
       this.phone=jsonObj.data.phonenumber
     this.gender11=jsonObj.data.gender
     this.photo=jsonObj.data.photo
+    this.empid=jsonObj.data._id
+    console.log(this.empid)
+    localStorage.setItem('empid',jsonObj.data._id)
+
 
     console.log(this.reportingmanager+"manager is")
 
@@ -237,7 +242,7 @@ export class ViewdetailsComponent implements OnInit {
       empname:localStorage.getItem('email')
     }).subscribe((res)=>{
       console.log("bank details");
-        console.log(res);
+        console.log(res); 
         this.bankdetailsarray=res;
         var bankdetails = JSON.parse(this.bankdetailsarray._body);              
           this.accountholder=bankdetails.data.Accountholdername         
@@ -316,6 +321,7 @@ export class ViewdetailsComponent implements OnInit {
     profiledetails.append('nextreportingmanager',this.profiledetailsdata.nextreportingmanager)
     profiledetails.append('hrmanager',this.profiledetailsdata.hrmanager)
     profiledetails.append('empname',localStorage.getItem('email'))
+    profiledetails.append('id',localStorage.getItem('empid'))
     this._auth.profileldetails(profiledetails).subscribe((res)=>{
       console.log(res);
       this.array2=res;
