@@ -23,7 +23,7 @@ export class AuthService {
   private _login1Url = " https://hrmsbackend.herokuapp.com/user/login";
   private _addemployeeUrl = " https://hrmsbackend.herokuapp.com/Admin/uploads";
   private _leaverequestUrl = "https://hrmsbackend.herokuapp.com/user/leaverequest";
-  private _leavestatusUrl = " https://hrmsbackend.herokuapp.com/user/leaveapproveddata";
+  private _leavestatusUrl = "https://hrmsbackend.herokuapp.com/user/leaveapproveddata";
   private _viewholidayUrl = " https://hrmsbackend.herokuapp.com/user/viewholiday";
   private _addiprocurementUrl = "https://hrmsbackend.herokuapp.com/user/addiprocurement";
   private _getiprodataUrl = " https://hrmsbackend.herokuapp.com/user/getapprovediprodata";
