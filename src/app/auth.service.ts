@@ -25,7 +25,7 @@ export class AuthService {
   private _leaverequestUrl = "https://hrmsbackend.herokuapp.com/user/leaverequest";
   private _leavestatusUrl = "https://hrmsbackend.herokuapp.com/user/leaveapproveddata";
   private _viewholidayUrl = " https://hrmsbackend.herokuapp.com/user/viewholiday";
-  private _addiprocurementUrl = "https://hrmsbackend.herokuapp.com/user/addiprocurement";
+  private _addiprocurementUrl = " https://hrmsbackend.herokuapp.com/user/addiprocurement";
   private _getiprodataUrl = " https://hrmsbackend.herokuapp.com/user/getapprovediprodata";
   private _downloadpayslipsUrl = " https://hrmsbackend.herokuapp.com/user/getpayslips";
   private _resetpasswordUrl = "  https://hrmsbackend.herokuapp.com/user/resetpassword";
