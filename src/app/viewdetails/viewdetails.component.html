@@ -118,7 +118,7 @@
                           Autocomplete="off" 
                           [(ngModel)]="profiledetailsdata.fullname" #firstname="ngModel"
                            pattern="[a-zA-Z\s]+"  
-                           placeholder="Full Name" required>
+                           placeholder="First Name" required>
                            <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
                              <div *ngIf="firstname.hasError('required')">
                               Please enter First Name
@@ -176,10 +176,10 @@
                         <div class="input-group">                                   
                                                                       
                                 <input type="radio"   name="gender" required
-                                value="male" #gender="ngModel"
+                                value="Male" #gender="ngModel"
                                 [(ngModel)]=" profiledetailsdata.gender" class="mt-1">Male 
         &nbsp;&nbsp;&nbsp;<input type="radio"   name="gender" 
-        value="female" required #gender="ngModel"
+        value="Female" required #gender="ngModel"
         [(ngModel)]=" profiledetailsdata.gender"class="mt-1">Female
        
                               </div>
@@ -239,10 +239,10 @@
                 Autocomplete="off" 
                 [(ngModel)]=" profiledetailsdata.reportingmanager"
                 #locAdd ="ngModel"
-               placeholder="ReportingManager" required></textarea>
+               placeholder="ReportingManager Email" required></textarea>
                  <mat-error *ngIf="locAdd.invalid && (locAdd.dirty || locAdd.touched)">
                    <div *ngIf="locAdd.hasError('required')">
-                     Please enter Local Address
+                     Please enter ReportingManager Email
                    </div>
      
                  </mat-error>
@@ -253,10 +253,10 @@
                Autocomplete="off" 
                [(ngModel)]=" profiledetailsdata.nextreportingmanager"
                #perAdd ="ngModel"
-              placeholder="Next Reporting Manager" required></textarea>
+              placeholder="Next Reporting Manager Email" required></textarea>
                 <mat-error *ngIf="perAdd.invalid && (perAdd.dirty || perAdd.touched)">
                   <div *ngIf="perAdd.hasError('required')">
-                    Please enter Permanent Address
+                    Please enter Next ReportingManager Email
                   </div>
     
                 </mat-error>
@@ -270,10 +270,10 @@
          [(ngModel)]=" profiledetailsdata.hrmanager" matInput 
          #bloodGroup="ngModel"
          
-         placeholder="HR Manager" required>
+         placeholder="HR Manager Email" required>
          <mat-error *ngIf="bloodGroup.invalid &&(bloodGroup.dirty || bloodGroup.touched)">
           <div *ngIf="bloodGroup.hasError('required')">
-            Please enter Blood Group
+            Please enter HR Manager Email
           </div>
                    
         </mat-error>
@@ -329,7 +329,7 @@
               <div class="modal-dialog modal-dialog-scrollable" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Efduacation Details</h5>
+                    <h5 class="modal-title" id="exampleModalScrollableTitle">Edit Education Details</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
