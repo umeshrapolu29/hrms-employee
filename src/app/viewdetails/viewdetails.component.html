@@ -132,21 +132,36 @@
                         
                         </mat-form-field></div>
                         
-                                <div class="col-lg-6 mt-3">
-                                    <mat-form-field>
-                                      <input type="date" name="DOB" 
+                                <div class="col-lg-6 ">
+                                    <!-- <mat-form-field>
+                                      <input type="date" name="fullid" 
                                       Autocomplete="off" 
-                                      [(ngModel)]=" profiledetailsdata.DOB"  
+                                      [(ngModel)]=" profiledetailsdata.fullid"  
                                       #Dob="ngModel"
                                       matInput 
-                                      placeholder="DOB" required>
+                                      placeholder="FullID" required>
                                       <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
                                         <div *ngIf="Dob.hasError('required')">
-                                         please enter Date of Birth
+                                         please enter FullID
                                         </div>
                  
                                       </mat-error>
-                                      </mat-form-field>
+                                      </mat-form-field> -->
+                                      <mat-form-field>
+                                          <input matInput name="fullid" 
+                                          Autocomplete="off" 
+                                          [(ngModel)]="profiledetailsdata.fullid" #firstname="ngModel"
+                                           pattern="[a-zA-Z\s]+"  
+                                           placeholder="Fullid" required>
+                                           <mat-error *ngIf="firstname.invalid &&(firstname.dirty || firstname.touched)">
+                                             <div *ngIf="firstname.hasError('required')">
+                                              Please enter Fullid
+                                             </div>
+                                           
+                              
+                                           </mat-error>
+                                        
+                                        </mat-form-field>
                                   </div>
                            
                  </div>
@@ -171,6 +186,30 @@
                       </div>
 
 
+                      <div class="col-lg-6 mt-3">
+                        <mat-form-field>
+                          <input type="date" name="DOB" 
+                          Autocomplete="off" 
+                          [(ngModel)]=" profiledetailsdata.DOB"  
+                          #Dob="ngModel"
+                          matInput 
+                          placeholder="DOB" required>
+                          <mat-error *ngIf="Dob.invalid && (Dob.dirty || Dob.touched)">
+                            <div *ngIf="Dob.hasError('required')">
+                             please enter Date of Birth
+                            </div>
+     
+                          </mat-error>
+                          </mat-form-field>
+                      </div>
+               
+               
+                 </div>
+                 <div class="row">
+
+
+
+
                     <div class="col-lg-6">
                         <span class="input-group-text">Gender :</span>
                         <div class="input-group">                                   
@@ -190,10 +229,9 @@
                               </mat-error>       
                  
                       </div>
-               
-               
-                 </div>
-                 <div class="row">
+
+
+
                   <div class="col-lg-6">
                   <mat-form-field>
                       <input type="email" name="email" 
@@ -213,42 +251,69 @@
                       
                     </mat-error>
                      </mat-form-field></div>
-                     <div class="col-lg-6">
-                      <mat-form-field>
-                     <input matInput  name="phone" 
-                     Autocomplete="off" 
-                     [(ngModel)]=" profiledetailsdata.phone"
-                     #phoneno ="ngModel"
-                      pattern="[0-9]{10,10}"
-                      placeholder="Phone Number" required>
-                      <mat-error *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
-                        <div *ngIf="phoneno.hasError('required')">
-                          Please enter Mobile Number
-                        </div>
-                        
-                        <div *ngIf="phoneno.hasError('pattern')" >
-                          Please enter valid mobile number
-                        </div>
-                      </mat-error>
-                     </mat-form-field></div>
+                     
            </div>
            <div class="row">
-            <div class="col-lg-6">
-              <mat-form-field>
-                <textarea matInput name="reportingmanager" 
-                Autocomplete="off" 
-                [(ngModel)]=" profiledetailsdata.reportingmanager"
-                #locAdd ="ngModel"
-               placeholder="ReportingManager Email" required></textarea>
-                 <mat-error *ngIf="locAdd.invalid && (locAdd.dirty || locAdd.touched)">
-                   <div *ngIf="locAdd.hasError('required')">
-                     Please enter ReportingManager Email
-                   </div>
-     
-                 </mat-error>
-                </mat-form-field></div>
-               <div class="col-lg-6">
-                <mat-form-field>
+           
+
+                <div class="col-lg-6">
+                    <mat-form-field>
+                   <input matInput  name="phone" 
+                   Autocomplete="off" 
+                   [(ngModel)]=" profiledetailsdata.phone"
+                   #phoneno ="ngModel"
+                    pattern="[0-9]{10,10}"
+                    placeholder="Phone Number" required>
+                    <mat-error *ngIf="phoneno.invalid && (phoneno.dirty || phoneno.touched)">
+                      <div *ngIf="phoneno.hasError('required')">
+                        Please enter Mobile Number
+                      </div>
+                      
+                      <div *ngIf="phoneno.hasError('pattern')" >
+                        Please enter valid mobile number
+                      </div>
+                    </mat-error>
+                   </mat-form-field></div>
+
+                   <div class="col-lg-6">
+                       <!-- <mat-form-field>
+                        <textarea matInput name="reportingmanager" 
+                        Autocomplete="off" 
+                        [(ngModel)]=" profiledetailsdata.reportingmanager"
+                        #locAdd ="ngModel"
+                       placeholder="ReportingManager Email" required></textarea>
+                         <mat-error *ngIf="locAdd.invalid && (locAdd.dirty || locAdd.touched)">
+                           <div *ngIf="locAdd.hasError('required')">
+                             Please enter ReportingManager Email
+                           </div>
+             
+                         </mat-error>
+                        </mat-form-field> -->
+
+                        <mat-form-field>
+                            <input type="text" name="reportingmanager" 
+                            Autocomplete="off" 
+                            [(ngModel)]=" profiledetailsdata.reportingmanager" matInput 
+                            #bloodGroup="ngModel"
+                            
+                            placeholder=" Reporting Manager Email" required>
+                            <mat-error *ngIf="bloodGroup.invalid &&(bloodGroup.dirty || bloodGroup.touched)">
+                             <div *ngIf="bloodGroup.hasError('required')">
+                               Please enter  Reporting Manager Email
+                             </div>
+                                      
+                           </mat-error>
+                            </mat-form-field>
+                      </div>
+                        
+              
+     </div>
+     <div class="row">
+
+
+      
+ <div class="col-lg-6">
+                <!-- <mat-form-field>
                <textarea matInput name="nextreportingmanager" 
                Autocomplete="off" 
                [(ngModel)]=" profiledetailsdata.nextreportingmanager"
@@ -260,9 +325,26 @@
                   </div>
     
                 </mat-error>
-               </mat-form-field></div>
-     </div>
-     <div class="row">
+               </mat-form-field></div> -->
+               <mat-form-field>
+                  <input type="text" name="nextreportingmanager" 
+                  Autocomplete="off" 
+                  [(ngModel)]=" profiledetailsdata.nextreportingmanager" matInput 
+                  #bloodGroup="ngModel"
+                  
+                  placeholder="Next Reporting Manager Email" required>
+                  <mat-error *ngIf="bloodGroup.invalid &&(bloodGroup.dirty || bloodGroup.touched)">
+                   <div *ngIf="bloodGroup.hasError('required')">
+                     Please enter Next Reporting Manager Email
+                   </div>
+                            
+                 </mat-error>
+                  </mat-form-field>
+                  </div>
+
+
+
+
       <div class="col-lg-6">
       <mat-form-field>
          <input type="text" name="hrmanager" 
@@ -277,7 +359,8 @@
           </div>
                    
         </mat-error>
-         </mat-form-field></div>
+         </mat-form-field>
+        </div>
         
      </div>
                 </form>

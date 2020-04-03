@@ -99,6 +99,7 @@ export class ViewdetailsComponent implements OnInit {
     reportingmanager:'',
     nextreportingmanager:'',
     hrmanager:'',
+    fullid:'',
 
   }
   empData = { 
@@ -319,6 +320,7 @@ export class ViewdetailsComponent implements OnInit {
     profiledetails.append('reportingmanager',this.profiledetailsdata.reportingmanager)
  
     profiledetails.append('nextreportingmanager',this.profiledetailsdata.nextreportingmanager)
+    profiledetails.append('fullid',this.profiledetailsdata.fullid)
     profiledetails.append('hrmanager',this.profiledetailsdata.hrmanager)
     profiledetails.append('empname',localStorage.getItem('email'))
     profiledetails.append('id',localStorage.getItem('empid'))
@@ -328,7 +330,7 @@ export class ViewdetailsComponent implements OnInit {
     
       var jsonObj = JSON.parse( this.array2._body);
       console.log(jsonObj.msg)
-      if(jsonObj.msg=="data inserted"){
+      if(jsonObj.msg=="data inserted111"){
         Swal.fire('','upadated Sucessfuly','success')
         this._router.navigate(['/homepage'])
 
