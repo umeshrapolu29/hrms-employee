@@ -3,8 +3,8 @@
 //     background-attachment: fixed;
 //     background-size: cover;
 //     background-repeat: no-repeat;
-
 //   }
+
   .container{
     width:600px;
 
@@ -16,10 +16,18 @@
 }
 .card{
    position:relative;
-    top: 60px;
+    top: 160px;
     left: 0;
    
 }
 .card h1 p{
 color: white;
+
+}
+.btn{
+  width: 300px;
+    margin-left: auto;
+}
+.text{
+  margin-left: 42px;
 }
